@@ -1,20 +1,37 @@
 #about{
-  height: 100vh;
+  height: fit-content;
   width: 100vw;
+  background: $bcg-clr;
+  @include fonts($m-font, var(--font-size));
 
-  @include flex(row);
+  @include flex(column);
 
-  z-index: 100;
+  z-index: 150;
+
+  h2{
+    margin: 1rem;
+    font-weight: normal;
+  }
+
 
  #countdown{
    color: $txt-clr;
    padding: 1rem 3rem;
+   aspect-ratio: 2.9 / 1;
+  margin-top: 1rem;
+   z-index: 104;
+
+   background: url("svgs/frame_1.svg");
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
 
 
    & > span{
      @include flex(column);
      .countdown-text{
        font-size: var(--font-size);
+       color: color-mix(in srgb, $txt-clr, 30% transparent);;
      }
 
      &:nth-child(even){
@@ -23,18 +40,69 @@
    }
  }
 
+  #ceremony{
+    margin-top: 10rem;
+  }
+
+  .main-information{
+    margin-top: 2rem;
+    width: 100vw;
+    height: 80vh;
+    ;@include flex(column);
+    padding: 2rem;
+    box-sizing: border-box;
+    z-index: 102;
+    h2{
+      margin-bottom: 2rem;
+    }
+    .information{
+      height: 100%;
+      width: 80%;
+      &_box{
+        border: 1px solid black;
+      }
+    }
+  }
+
+
   @include responsive(landscape){
+    h2{
+      font-size: var(--heading-size);
+    }
     #countdown{
       font-size: var(--heading-size);
       @include flex(row, $gap: 3rem);
     }
+
+    .information{
+      @include flex(row, $align: flex-start,  $justify: space-between);
+
+      &_box{
+        width: 45%;
+        height: 20vw;
+      }
+    }
   }
 
   @include responsive(portrait) {
+    h2{
+      font-size: var(--subheading-size);
+    }
     #countdown{
      font-size: var(--heading-size);
       @include flex(row, $gap: 1rem);
+      width: 55%;
+    }
+
+    .information{
+      @include flex(column, $justify: flex-start, $gap: 1rem);
+      &_box{
+        width: 40vw;
+        height: 20vw;
+      }
     }
   }
+
+
 }
 

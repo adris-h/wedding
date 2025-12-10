@@ -14,10 +14,11 @@ body p, body h1, body {
 
 :root {
   --heading-size: calc(var(--font-size) * 3);
+  --subheading-size: calc(var(--font-size) * 2);
 }
 @media (orientation: portrait) {
   :root {
-    --font-size: 6vw;
+    --font-size: 4vw;
   }
 }
 @media (orientation: landscape) {
@@ -49,6 +50,10 @@ body h1 {
   line-height: normal;
   color: #5b4f48;
 }
+html {
+  scroll-behavior: smooth;
+}
+
 #nav-desktop {
   position: fixed;
   width: 100vw;
@@ -59,7 +64,7 @@ body h1 {
   gap: 0;
   flex-wrap: nowrap;
   padding-top: 1rem;
-  z-index: 100;
+  z-index: 1000;
 }
 #nav-desktop > div {
   box-sizing: border-box;
@@ -137,7 +142,7 @@ body h1 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   gap: 0;
   flex-wrap: nowrap;
   padding: 1rem;
@@ -240,6 +245,7 @@ body h1 {
   gap: 0;
   flex-wrap: nowrap;
   color: #5b4f48;
+  height: 100vh;
 }
 #main #hero_background {
   position: fixed;
@@ -247,7 +253,7 @@ body h1 {
   top: 0;
   width: 100%;
   height: 100%;
-  z-index: 2;
+  z-index: 1;
   background: url("images/hero.webp");
   background-size: contain;
 }
@@ -262,6 +268,10 @@ body h1 {
   z-index: 20;
 }
 #main #hero_heading h1 {
+  font-family: "ciclo-display", sans-serif;
+  font-size: var(--heading-size);
+  font-weight: normal;
+  line-height: normal;
   color: #F6F6EF;
 }
 #main #hero_heading h1 span {
@@ -286,19 +296,36 @@ body h1 {
   flex-wrap: nowrap;
 }
 #main #about {
-  height: 100vh;
+  height: fit-content;
   width: 100vw;
+  background: #f9f5ea;
+  font-family: "ciclo-display", sans-serif;
+  font-size: var(--font-size);
+  font-weight: normal;
+  line-height: normal;
+  color: #5b4f48;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 0;
   flex-wrap: nowrap;
-  z-index: 100;
+  z-index: 150;
+}
+#main #about h2 {
+  margin: 1rem;
+  font-weight: normal;
 }
 #main #about #countdown {
   color: #5b4f48;
   padding: 1rem 3rem;
+  aspect-ratio: 2.9/1;
+  margin-top: 1rem;
+  z-index: 104;
+  background: url("svgs/frame_1.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 #main #about #countdown > span {
   display: flex;
@@ -310,11 +337,42 @@ body h1 {
 }
 #main #about #countdown > span .countdown-text {
   font-size: var(--font-size);
+  color: color-mix(in srgb, #5b4f48, 30% transparent);
 }
 #main #about #countdown > span:nth-child(even) {
   color: color-mix(in srgb, #5b4f48, 30% transparent);
 }
+#main #about #ceremony {
+  margin-top: 10rem;
+}
+#main #about .main-information {
+  margin-top: 2rem;
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  flex-wrap: nowrap;
+  padding: 2rem;
+  box-sizing: border-box;
+  z-index: 102;
+}
+#main #about .main-information h2 {
+  margin-bottom: 2rem;
+}
+#main #about .main-information .information {
+  height: 100%;
+  width: 80%;
+}
+#main #about .main-information .information_box {
+  border: 1px solid black;
+}
 @media (orientation: landscape) {
+  #main #about h2 {
+    font-size: var(--heading-size);
+  }
   #main #about #countdown {
     font-size: var(--heading-size);
     display: flex;
@@ -324,8 +382,23 @@ body h1 {
     gap: 3rem;
     flex-wrap: nowrap;
   }
+  #main #about .information {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0;
+    flex-wrap: nowrap;
+  }
+  #main #about .information_box {
+    width: 45%;
+    height: 20vw;
+  }
 }
 @media (orientation: portrait) {
+  #main #about h2 {
+    font-size: var(--subheading-size);
+  }
   #main #about #countdown {
     font-size: var(--heading-size);
     display: flex;
@@ -334,6 +407,19 @@ body h1 {
     align-items: center;
     gap: 1rem;
     flex-wrap: nowrap;
+    width: 55%;
+  }
+  #main #about .information {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: nowrap;
+  }
+  #main #about .information_box {
+    width: 40vw;
+    height: 20vw;
   }
 }
 

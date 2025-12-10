@@ -25,31 +25,29 @@
     <body id="main">
         <nav id="nav-desktop">
             <div>
+                <a href="index.html">DM</a>
                 <span>
-                    <a href="#">Informace</a>
-                    <a href="#">Galerie</a>
-                </span>
-                <a href="rsvp.html">Dejte nám vědět</a>
+                        <a href="gallery.html">Galerie</a>
+                        <a href="rsvp.html">Dejte nám vědět</a>
+                    </span>
+
             </div>
         </nav>
 
         <nav id="nav-mobile">
-<!--            <a>svatba-mejtsky.cz</a>-->
+            <!--            <a>svatba-mejtsky.cz</a>-->
             <button id="nav-mobile_hamburger">
                 <span></span>
                 <span>
                     <span></span>
                     <span></span>
                     <span></span>
-                </span>
+              </span>
             </button>
             <div id="nav-mobile_menu">
                 <ul>
-                    <li><a>Informace</a></li>
-                    <li><a>Galerie</a></li>
-                    <li>
-                        <a href="rsvp.html">Dejte nám vědět</a>
-                    </li>
+                    <li><a href="gallery.html">Galerie</a></li>
+                    <li><a href="rsvp.html">Dejte nám vědět</a></li>
                 </ul>
             </div>
         </nav>
@@ -71,11 +69,29 @@
                     . countdown
                     . date and location
             -->
+            <h2>Již brzy to spolu oslavíme!</h2>
             <div id="countdown"></div>
-            <div id="information">
-                <div class="information_box" id="information_ceremony"></div>
-                <div class="information_box" id="information_date"></div>
-                <div class="information_box" id="information_dresscode"></div>
+
+            <div id="ceremony" class="main-information">
+                <h2>Obřad</h2>
+                <div class="information">
+                    <div class="information_box" id="information_ceremony"></div>
+                    <div class="information_box" id="information_date"></div>
+                </div>
+            </div>
+            <div id="celebration" class="main-information">
+                <h2>Oslava</h2>
+                <div class="information">
+                    <div class="information_box"></div>
+                    <div class="information_box"></div>
+                </div>
+            </div>
+            <div id="accommodations" class="main-information">
+                <h2>Ubytování</h2>
+                <div class="information">
+                    <div class="information_box"></div>
+                    <div class="information_box"></div>
+                </div>
             </div>
         </section>
     </body>

@@ -5,6 +5,7 @@
   background: $bcg-clr;
   @include flex(column);
   color: $txt-clr;
+  height: 100vh;
 
 
 
@@ -14,7 +15,7 @@
     top: 0;
     width: 100%;
     height: 100%;
-    z-index: 2;
+    z-index: 1;
 
 
     background: url("images/hero.webp");
@@ -25,7 +26,8 @@
     @include flex(row);
     z-index: 20;
     h1{
-      color: $txt-clr-light;
+      @include fonts($m-font, var(--heading-size), $color: $txt-clr-light);
+
       span {
         display: inline;
       }
@@ -38,10 +40,6 @@
 
         span {
           display: block;
-
-          &:nth-child(2) {
-            
-          }
         }
       }
       //

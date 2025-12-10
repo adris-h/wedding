@@ -9,6 +9,7 @@
   padding-top: 1rem;
   z-index: $nav-z;
 
+
   & > div{
     box-sizing: border-box;
     position: relative;
@@ -67,7 +68,7 @@
     $icon-size: 4em;
     $line-height: 0.4em;
 
-    @include flex(row, $justify:  space-between, $align: flex-start);
+    @include flex(row, $justify:  space-between, $align: center);
     padding: 1rem;
 
     width: 95%;

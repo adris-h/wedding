@@ -12,6 +12,8 @@
   }
 
   --heading-size: calc(var(--font-size) * 3);
+  --subheading-size: calc(var(--font-size) * 2);
+
 }
 
 *{
@@ -40,6 +42,10 @@ body{
   p{
     @extend %zero-margin;
   }
+}
+
+html{
+  scroll-behavior: smooth;
 }
 
 // NAVBAR
