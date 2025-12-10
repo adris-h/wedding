@@ -1,0 +1,101 @@
+// FONTS
+@mixin fonts($font-family, $font-size, $font-weight: normal, $line-height: normal, $color: $txt-clr) {
+  font-family: $font-family;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+  @if $color != null {
+    color: $color;
+  }
+}
+
+@mixin responsive-font($property, $mobile-size, $tablet-size: null, $desktop-size: null) {
+  #{$property}: $mobile-size;
+
+  @if $tablet-size != null {
+    @media (min-width: 768px) {
+      #{$property}: $tablet-size;
+    }
+  }
+
+  @if $desktop-size != null {
+    @media (min-width: 1024px) {
+      #{$property}: $desktop-size;
+    }
+  }
+}
+
+@mixin text-truncate($lines: 1) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// FLEXBOX
+
+@mixin flex($dir, $justify: center, $align: center, $gap: 0, $wrap: nowrap){
+  display: flex;
+  flex-direction: $dir;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+  flex-wrap: $wrap;
+}
+
+
+// LAYOUT
+@mixin responsive($breakpoint) {
+  @if $breakpoint == xlarge {
+    @media only screen and (max-width: 2800px) and (min-width: 1740px) {
+      @content;
+    }
+  } @else if $breakpoint == desktop {
+    @media only screen and (max-width: 1749px) and (min-width: 1400px) {
+      @content;
+    }
+  } @else if $breakpoint == laptop {
+    @media only screen and (max-width: 1400px) and (min-width: 1001px) {
+      @content;
+    }
+  } @else if $breakpoint == tablet {
+    @media only screen and (max-width: 1000px) and (min-width: 900px) {
+      @content;
+    }
+  }@else if $breakpoint == mobile-tablet {
+    @media only screen and (max-width: 900px) {
+      @content;
+    }
+  } @else if $breakpoint == mobile {
+    @media only screen and (max-width: 760px) {
+      @content;
+    }
+  } @else if $breakpoint == portrait {
+    @media (orientation: portrait) {
+      @content;
+    }
+  } @else if $breakpoint == no-hover {
+    @media (hover: none) {
+      @content;
+    }
+  } @else if $breakpoint == landscape {
+    @media (orientation: landscape) {
+      @content
+    }
+  }
+}
+
+
+%zero-margin{
+  margin: 0;
+}
+
+%full-size{
+  width: 100%;
+  height: 100%;
+}
+
+%section-size{
+  width: 100vw;
+  height: 100vh;
+}

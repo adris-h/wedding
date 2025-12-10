@@ -1,0 +1,40 @@
+#about{
+  height: 100vh;
+  width: 100vw;
+
+  @include flex(row);
+
+  z-index: 100;
+
+ #countdown{
+   color: $txt-clr;
+   padding: 1rem 3rem;
+
+
+   & > span{
+     @include flex(column);
+     .countdown-text{
+       font-size: var(--font-size);
+     }
+
+     &:nth-child(even){
+       color: color-mix(in srgb, $txt-clr, 30% transparent);
+     }
+   }
+ }
+
+  @include responsive(landscape){
+    #countdown{
+      font-size: var(--heading-size);
+      @include flex(row, $gap: 3rem);
+    }
+  }
+
+  @include responsive(portrait) {
+    #countdown{
+     font-size: var(--heading-size);
+      @include flex(row, $gap: 1rem);
+    }
+  }
+}
+

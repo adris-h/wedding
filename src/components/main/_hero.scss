@@ -1,0 +1,57 @@
+#hero{
+  @extend %full-size;
+  /*background: url("images/hero-img.webp") no-repeat center center;
+  background-size: cover;*/
+  background: $bcg-clr;
+  @include flex(column);
+  color: $txt-clr;
+
+
+
+  &_background{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+
+
+    background: url("images/hero.webp");
+    background-size: contain;
+  }
+  &_heading{
+    width: 80%;
+    @include flex(row);
+    z-index: 20;
+    h1{
+      color: $txt-clr-light;
+      span {
+        display: inline;
+      }
+
+      // DIVIDE THE TITLE, ON PORTRAIT MODE FOR MORE SPACE TAKEN
+      @include responsive(portrait) {
+
+        display: flex;
+        flex-direction: column;
+
+        span {
+          display: block;
+
+          &:nth-child(2) {
+            
+          }
+        }
+      }
+      //
+    }
+  }
+  &_sub-heading{
+    width: 80%;
+    @include flex(row, $justify: space-between);
+    i{
+    }
+  }
+}
+

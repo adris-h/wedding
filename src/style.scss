@@ -1,0 +1,60 @@
+@import "components/re-usables/variables";
+@import "components/re-usables/mixins";
+
+
+:root{
+  @include responsive(portrait) {
+    --font-size: #{$font-size-mobile};
+  }
+
+  @include responsive(landscape) {
+    --font-size: #{$font-size-desktop};
+  }
+
+  --heading-size: calc(var(--font-size) * 3);
+}
+
+*{
+  transition: $transition;
+}
+
+::selection{
+  background-color: $acc-clr;
+  color: $bcg-clr;
+}
+
+// DEFAULT SETTINGS
+body{
+  background: $bcg-clr !important;
+  color: $txt-clr !important;
+  font-size: var(--font-size);
+  overflow-x: hidden;
+  box-sizing: border-box;
+  @extend %zero-margin;
+    h1{
+      //color: $txt-clr !important;
+      @extend %zero-margin;
+      @include fonts($m-font, var(--heading-size));
+    }
+
+  p{
+    @extend %zero-margin;
+  }
+}
+
+// NAVBAR
+@import "components/nav";
+
+
+
+// MAIN
+#main{
+  @extend %section-size;
+
+  // HERO SECTION
+  @import "components/main/hero";
+
+  // ABOUT SECTION
+  @import "components/main/about";
+}
+
