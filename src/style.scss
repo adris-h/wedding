@@ -16,9 +16,6 @@
 
 }
 
-*{
-  transition: $transition;
-}
 
 ::selection{
   background-color: $acc-clr;
@@ -64,3 +61,8 @@ html{
   @import "components/main/about";
 }
 
+#gallery{
+  @extend %section-size;
+
+  @import "components/gallery/gallery";
+}

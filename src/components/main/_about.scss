@@ -3,22 +3,45 @@
   width: 100vw;
   background: $bcg-clr;
   @include fonts($m-font, var(--font-size));
-
   @include flex(column);
-
-  z-index: 150;
-
+  z-index: 15;
+  position: relative;
+  padding-top: 10rem;
   h2{
     margin: 1rem;
     font-weight: normal;
   }
 
+  *{
+    transition: $transition;
+  }
+
+  #people{
+    height: 100vh;
+    .information{
+      height: 90%;
+      &_box{
+        border: none;
+        height: 100%;
+        &:hover{
+          border: none;
+        }
+      }
+      &_photo{
+        border: 1px solid black;
+        width: 70%;
+        height: 70%;
+
+
+      }
+    }
+  }
 
  #countdown{
    color: $txt-clr;
    padding: 1rem 3rem;
    aspect-ratio: 2.9 / 1;
-  margin-top: 1rem;
+   margin-top: 1rem;
    z-index: 104;
 
    background: url("svgs/frame_1.svg");
@@ -45,9 +68,8 @@
   }
 
   .main-information{
-    margin-top: 2rem;
     width: 100vw;
-    height: 80vh;
+    height: fit-content;
     ;@include flex(column);
     padding: 2rem;
     box-sizing: border-box;
@@ -58,8 +80,18 @@
     .information{
       height: 100%;
       width: 80%;
+      cursor: pointer;
+      text-align: center;
+
+
       &_box{
         border: 1px solid black;
+        text-decoration: none;
+        transition: $transition;
+
+        &:hover{
+          transform: scale(1.01);
+        }
       }
     }
   }
@@ -74,12 +106,29 @@
       @include flex(row, $gap: 3rem);
     }
 
-    .information{
-      @include flex(row, $align: flex-start,  $justify: space-between);
+    .main-information{
+      margin-top: 2rem;
+      .information{
+        @include flex(row, $align: flex-start,  $justify: space-between);
 
-      &_box{
-        width: 45%;
-        height: 20vw;
+
+        &_box{
+          width: 45%;
+          height: 20vw;
+
+          @include flex(column);
+        }
+
+        &_icon{
+          width: 20%;
+          aspect-ratio: 1/1;
+          @include flex(row);
+          border: 1px solid color-mix(in srgb, $txt-clr, 30% transparent);;
+        }
+
+        &_heading{
+          @include fonts( $m-font, var(--font-size))
+        }
       }
     }
   }
@@ -91,18 +140,22 @@
     #countdown{
      font-size: var(--heading-size);
       @include flex(row, $gap: 1rem);
-      width: 55%;
+      width: 60%;
     }
 
-    .information{
-      @include flex(column, $justify: flex-start, $gap: 1rem);
-      &_box{
-        width: 40vw;
-        height: 20vw;
+    .main-information{
+      margin-top: 4rem;
+
+      .information{
+        @include flex(column, $justify: flex-start, $gap: 3rem);
+        &_box{
+          width: 70vw;
+          height: 40vw;
+        }
       }
     }
-  }
 
+  }
 
 }
 

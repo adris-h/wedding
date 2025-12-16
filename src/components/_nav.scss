@@ -8,6 +8,12 @@
   @include flex(row);
   padding-top: 1rem;
   z-index: $nav-z;
+  top: 0;
+  box-sizing: border-box;
+
+  *{
+    transition: $transition;
+  }
 
 
   & > div{
@@ -52,29 +58,40 @@
   backdrop-filter: blur(0) brightness(100%);
   padding: .5rem 0;
   box-sizing: border-box;
+ *{
+   transition: $transition;
+ }
+
 
   &.active{
     background: rgba(0, 0, 0, 0);
     backdrop-filter: blur(1px) brightness(100%);
     height: 100vh;
+    z-index: 120;
+
+    #nav-mobile_hamburger{
+      box-shadow: 0 0 0;
+    }
   }
   &_hamburger{
-    z-index: 2;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
+    z-index: 200;
     background: $bcg-clr;
-    border: none;
     position: fixed;
     font-size: .5rem;
-
     $icon-size: 4em;
-    $line-height: 0.4em;
+    $line-height: 0.2em;
 
     @include flex(row, $justify:  space-between, $align: center);
-    padding: 1rem;
+    padding: 2rem;
+    box-sizing: border-box;
 
     width: 95%;
-    height: 10vh;
+    height: fit-content;
 
-    & > span{
+    #menu-button{
+      border: none;
+      background: none;
       width: $icon-size;
       height: $icon-size;
       cursor: pointer;
@@ -89,13 +106,11 @@
           width: 80%;
         }
       }
-    }
 
-    &.active{
-      & > span{
+      &.active{
         & > span{
           &:nth-child(1) {
-            transform: translateY(calc($icon-size * 0.28)) rotate(-45deg);
+            transform: translateY(calc($icon-size * 0.31)) rotate(-45deg);
           }
 
           &:nth-child(2) {
@@ -104,11 +119,13 @@
           }
 
           &:nth-child(3) {
-            transform: translateY(calc($icon-size * -0.28)) rotate(45deg);
+            transform: translateY(calc($icon-size * -0.31)) rotate(45deg);
           }
         }
       }
     }
+
+
   }
 
   // POP UP MENU
@@ -132,6 +149,7 @@
       a{
         text-decoration: none;
         @include fonts($m-font, 2rem);
+        font-size: var(--subheading-size);
         opacity: 0;
         cursor: pointer;
 

@@ -27,23 +27,22 @@
             <div>
                 <a href="index.html">DM</a>
                 <span>
-                        <a href="gallery.html">Galerie</a>
-                        <a href="rsvp.html">Dejte nám vědět</a>
-                    </span>
-
+                    <a href="gallery.html">Galerie</a>
+                    <a href="rsvp.html">Dejte nám vědět</a>
+                </span>
             </div>
         </nav>
 
         <nav id="nav-mobile">
             <!--            <a>svatba-mejtsky.cz</a>-->
-            <button id="nav-mobile_hamburger">
+            <div id="nav-mobile_hamburger">
                 <span></span>
-                <span>
+                <button id="menu-button">
                     <span></span>
                     <span></span>
                     <span></span>
-              </span>
-            </button>
+              </button>
+            </div>
             <div id="nav-mobile_menu">
                 <ul>
                     <li><a href="gallery.html">Galerie</a></li>
@@ -52,7 +51,7 @@
             </div>
         </nav>
         <section id="hero">
-            <div id="hero_background" class="parallax" data-depth='1.0'></div>
+            <div id="hero_background"></div>
             <div id="hero_heading" class="parallax" data-depth='0.5'>
                 <h1>
                     <span>Dominika</span>
@@ -75,22 +74,74 @@
             <div id="ceremony" class="main-information">
                 <h2>Obřad</h2>
                 <div class="information">
-                    <div class="information_box" id="information_ceremony"></div>
-                    <div class="information_box" id="information_date"></div>
+                    <a class="information_box" id="information_ceremony" target="_blank" href="https://www.google.com/maps?ll=49.333113,17.581547&z=15&t=m&hl=cs&gl=CZ&mapclient=embed&cid=7831744309591973745">
+                        <span class="information_icon">icon</span>
+                        <h3 class="information_heading">
+                            <span>7.5.2026</span>
+                            <span>ve 12:00</span>
+                        </h3>
+                    </a>
+                    <a class="information_box" id="information_date">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3348.0772693555964!2d17.581541856523547!3d49.33258512171993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4713a75ed4c12e55%3A0x6caff1f488ea9f71!2zWsOhbWVrIEhvbGXFoW92!5e0!3m2!1scs!2scz!4v1765627007838!5m2!1scs!2scz" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </a>
                 </div>
             </div>
             <div id="celebration" class="main-information">
                 <h2>Oslava</h2>
                 <div class="information">
-                    <div class="information_box"></div>
-                    <div class="information_box"></div>
+                    <a class="information_box" target="_blank" href="https://www.google.com/maps/place/BisteRko/@49.3244324,17.5428873,15.69z/data=!4m6!3m5!1s0x471309d746e01705:0x69bd6fc729abb263!8m2!3d49.3239743!4d17.5443858!16s%2Fg%2F11jyxwz_vn?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D">
+                        <span class="information_icon">icon</span>
+                        <h3 class="information_heading">BisterRko Holešov</h3>
+                    </a>
+                    <a class="information_box">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2600.488255923187!2d17.541810876923897!3d49.32397427139907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471309d746e01705%3A0x69bd6fc729abb263!2sBisteRko!5e0!3m2!1scs!2scz!4v1765629202921!5m2!1scs!2scz" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </a>
                 </div>
             </div>
             <div id="accommodations" class="main-information">
                 <h2>Ubytování</h2>
                 <div class="information">
-                    <div class="information_box"></div>
-                    <div class="information_box"></div>
+                    <a class="information_box" target="_blank" href="https://www.pivovarholesov.cz/hotel">
+                        <span class="information_icon">icon</span>
+                        <h3 class="information_heading">Pánský Pivovar</h3>
+                    </a>
+                    <a class="information_box" target="_blank" href="https://hoteltacl.cz/">
+                        <span class="information_icon">icon</span>
+                        <h3 class="information_heading">Tacl</h3>
+                    </a>
+                </div>
+            </div>
+            <div id="parking" class="main-information">
+                <h2>Odvoz & Parkování</h2>
+                <div class="information">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                </div>
+            </div>
+            <div id="gifts" class="main-information">
+                <h2>Dary</h2>
+                <div class="information">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                </div>
+            </div>
+            <div id="dresscode" class="main-information">
+                <h2>Dress Code</h2>
+                <div class="information">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                </div>
+            </div>
+            <div id="people" class="main-information">
+                <h2>Důležité osoby</h2>
+                <div class="information">
+                    <a class="information_box">
+                        <span class="information_photo">photo</span>
+                        <h3 class="information_heading">Tonda</h3>
+                        <p>Tel.:</p>
+                    </a>
+                    <a class="information_box">
+                        <span class="information_photo">photo</span>
+                        <h3 class="information_heading">Peca</h3>
+                        <p>Tel.:</p>
+                    </a>
                 </div>
             </div>
         </section>

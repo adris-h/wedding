@@ -20,36 +20,67 @@
     <!--JS SCRIPT-->
     <script defer src="dist/index.js"></script>
   </head>
-  <body>
-    <nav id="nav-desktop">
-      <div>
-        <a href="index.html">DM</a>
-        <span>
-            <a href="gallery.html">Galerie</a>
-            <a href="rsvp.html">Dejte nám vědět</a>
-        </span>
+  <body id="gallery">
+  <nav id="nav-desktop">
+    <div>
+      <a href="index.html">DM</a>
+      <span>
+          <a href="gallery.html">Galerie</a>
+          <a href="rsvp.html">Dejte nám vědět</a>
+      </span>
+    </div>
+  </nav>
 
-      </div>
-    </nav>
-
-    <nav id="nav-mobile">
-      <button id="nav-mobile_hamburger">
+  <nav id="nav-mobile">
+    <!--            <a>svatba-mejtsky.cz</a>-->
+    <div id="nav-mobile_hamburger">
+      <span></span>
+      <button id="menu-button">
         <span></span>
-        <span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </span>
+        <span></span>
+        <span></span>
       </button>
-      <div id="nav-mobile_menu">
-        <ul>
-          <li><a>Informace</a></li>
-          <li><a>Galerie</a></li>
-          <li>
-            <a href="rsvp.html">Dejte nám vědět</a>
-          </li>
-        </ul>
+    </div>
+    <div id="nav-mobile_menu">
+      <ul>
+        <li><a href="gallery.html">Galerie</a></li>
+        <li><a href="rsvp.html">Dejte nám vědět</a></li>
+      </ul>
+    </div>
+  </nav>
+    <main id="gallery-photos">
+      <div id="column-1" class="column">
+        <div class="photo-container">
+          <div class="photo-container_photo" data-photo="c1_01"></div>
+          <button class="photo-container_button">Stáhnout</button>
+        </div>
+        <div class="photo-container">
+          <div class="photo-container_photo" data-photo="c1_02"></div>
+          <button class="photo-container_button">Stáhnout</button>
+        </div>
       </div>
-    </nav>
+      <div id="column-2" class="column">
+        <div class="photo-container">
+          <div class="photo-container_photo" data-photo="c2_01"></div>
+          <button class="photo-container_button">Stáhnout</button>
+        </div>
+        <div class="photo-container">
+          <div class="photo-container_photo" data-photo="c2_02"></div>
+          <button class="photo-container_button">Stáhnout</button>
+        </div>
+      </div>
+      <div id="column-3" class="column">
+        <div class="photo-container">
+          <div class="photo-container_photo" data-photo="c3_01"></div>
+          <button class="photo-container_button">Stáhnout</button>
+        </div>
+      </div>
+      <div id="column-4" class="column">
+        <div class="photo-container">
+          <div class="photo-container_photo" data-photo="c4_01"></div>
+          <button class="photo-container_button">Stáhnout</button>
+        </div>
+      </div>
+    </main>
   </body>
 </html>

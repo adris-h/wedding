@@ -1,13 +1,10 @@
 #hero{
   @extend %full-size;
-  /*background: url("images/hero-img.webp") no-repeat center center;
-  background-size: cover;*/
-  background: $bcg-clr;
   @include flex(column);
-  color: $txt-clr;
   height: 100vh;
-
-
+  z-index: 10;
+  position: relative;
+  transition: none;
 
   &_background{
     position: fixed;
@@ -15,18 +12,15 @@
     top: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;
-
-
     background: url("images/hero.webp");
     background-size: contain;
+    z-index: -1;
   }
   &_heading{
     width: 80%;
     @include flex(row);
-    z-index: 20;
     h1{
-      @include fonts($m-font, var(--heading-size), $color: $txt-clr-light);
+      @include fonts($m-font, var(--heading-size), $color: $txt-clr-light); // $txt-clr-light
 
       span {
         display: inline;

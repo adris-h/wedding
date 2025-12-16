@@ -7,7 +7,7 @@ body p, body h1, body {
   height: 100%;
 }
 
-#main {
+#gallery, #main {
   width: 100vw;
   height: 100vh;
 }
@@ -25,10 +25,6 @@ body p, body h1, body {
   :root {
     --font-size: 2vw;
   }
-}
-
-* {
-  transition: 600ms;
 }
 
 ::selection {
@@ -65,6 +61,11 @@ html {
   flex-wrap: nowrap;
   padding-top: 1rem;
   z-index: 1000;
+  top: 0;
+  box-sizing: border-box;
+}
+#nav-desktop * {
+  transition: 400ms;
 }
 #nav-desktop > div {
   box-sizing: border-box;
@@ -128,15 +129,22 @@ html {
   padding: 0.5rem 0;
   box-sizing: border-box;
 }
+#nav-mobile * {
+  transition: 400ms;
+}
 #nav-mobile.active {
   background: rgba(0, 0, 0, 0);
   backdrop-filter: blur(1px) brightness(100%);
   height: 100vh;
+  z-index: 120;
+}
+#nav-mobile.active #nav-mobile_hamburger {
+  box-shadow: 0 0 0;
 }
 #nav-mobile_hamburger {
-  z-index: 2;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
+  z-index: 200;
   background: #f9f5ea;
-  border: none;
   position: fixed;
   font-size: 0.5rem;
   display: flex;
@@ -145,11 +153,14 @@ html {
   align-items: center;
   gap: 0;
   flex-wrap: nowrap;
-  padding: 1rem;
+  padding: 2rem;
+  box-sizing: border-box;
   width: 95%;
-  height: 10vh;
+  height: fit-content;
 }
-#nav-mobile_hamburger > span {
+#nav-mobile_hamburger #menu-button {
+  border: none;
+  background: none;
   width: 4em;
   height: 4em;
   cursor: pointer;
@@ -160,25 +171,25 @@ html {
   gap: 0;
   flex-wrap: nowrap;
 }
-#nav-mobile_hamburger > span > span {
+#nav-mobile_hamburger #menu-button > span {
   width: 100%;
-  height: 0.4em;
-  border-radius: 0.4em;
+  height: 0.2em;
+  border-radius: 0.2em;
   background-color: #5b4f48;
   transition: all 0.3s ease;
 }
-#nav-mobile_hamburger > span > span:nth-child(2) {
+#nav-mobile_hamburger #menu-button > span:nth-child(2) {
   width: 80%;
 }
-#nav-mobile_hamburger.active > span > span:nth-child(1) {
-  transform: translateY(1.12em) rotate(-45deg);
+#nav-mobile_hamburger #menu-button.active > span:nth-child(1) {
+  transform: translateY(1.24em) rotate(-45deg);
 }
-#nav-mobile_hamburger.active > span > span:nth-child(2) {
+#nav-mobile_hamburger #menu-button.active > span:nth-child(2) {
   width: 0;
   opacity: 0;
 }
-#nav-mobile_hamburger.active > span > span:nth-child(3) {
-  transform: translateY(-1.12em) rotate(45deg);
+#nav-mobile_hamburger #menu-button.active > span:nth-child(3) {
+  transform: translateY(-1.24em) rotate(45deg);
 }
 #nav-mobile_menu {
   z-index: 1;
@@ -209,6 +220,7 @@ html {
   font-weight: normal;
   line-height: normal;
   color: #5b4f48;
+  font-size: var(--subheading-size);
   opacity: 0;
   cursor: pointer;
 }
@@ -235,17 +247,16 @@ html {
   }
 }
 #main #hero {
-  /*background: url("images/hero-img.webp") no-repeat center center;
-  background-size: cover;*/
-  background: #f9f5ea;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 0;
   flex-wrap: nowrap;
-  color: #5b4f48;
   height: 100vh;
+  z-index: 10;
+  position: relative;
+  transition: none;
 }
 #main #hero_background {
   position: fixed;
@@ -253,9 +264,9 @@ html {
   top: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
   background: url("images/hero.webp");
   background-size: contain;
+  z-index: -1;
 }
 #main #hero_heading {
   width: 80%;
@@ -265,7 +276,6 @@ html {
   align-items: center;
   gap: 0;
   flex-wrap: nowrap;
-  z-index: 20;
 }
 #main #hero_heading h1 {
   font-family: "ciclo-display", sans-serif;
@@ -310,11 +320,34 @@ html {
   align-items: center;
   gap: 0;
   flex-wrap: nowrap;
-  z-index: 150;
+  z-index: 15;
+  position: relative;
+  padding-top: 10rem;
 }
 #main #about h2 {
   margin: 1rem;
   font-weight: normal;
+}
+#main #about * {
+  transition: 400ms;
+}
+#main #about #people {
+  height: 100vh;
+}
+#main #about #people .information {
+  height: 90%;
+}
+#main #about #people .information_box {
+  border: none;
+  height: 100%;
+}
+#main #about #people .information_box:hover {
+  border: none;
+}
+#main #about #people .information_photo {
+  border: 1px solid black;
+  width: 70%;
+  height: 70%;
 }
 #main #about #countdown {
   color: #5b4f48;
@@ -346,9 +379,8 @@ html {
   margin-top: 10rem;
 }
 #main #about .main-information {
-  margin-top: 2rem;
   width: 100vw;
-  height: 80vh;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -365,9 +397,16 @@ html {
 #main #about .main-information .information {
   height: 100%;
   width: 80%;
+  cursor: pointer;
+  text-align: center;
 }
 #main #about .main-information .information_box {
   border: 1px solid black;
+  text-decoration: none;
+  transition: 400ms;
+}
+#main #about .main-information .information_box:hover {
+  transform: scale(1.01);
 }
 @media (orientation: landscape) {
   #main #about h2 {
@@ -382,7 +421,10 @@ html {
     gap: 3rem;
     flex-wrap: nowrap;
   }
-  #main #about .information {
+  #main #about .main-information {
+    margin-top: 2rem;
+  }
+  #main #about .main-information .information {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -390,9 +432,33 @@ html {
     gap: 0;
     flex-wrap: nowrap;
   }
-  #main #about .information_box {
+  #main #about .main-information .information_box {
     width: 45%;
     height: 20vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    flex-wrap: nowrap;
+  }
+  #main #about .main-information .information_icon {
+    width: 20%;
+    aspect-ratio: 1/1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    flex-wrap: nowrap;
+    border: 1px solid color-mix(in srgb, #5b4f48, 30% transparent);
+  }
+  #main #about .main-information .information_heading {
+    font-family: "ciclo-display", sans-serif;
+    font-size: var(--font-size);
+    font-weight: normal;
+    line-height: normal;
+    color: #5b4f48;
   }
 }
 @media (orientation: portrait) {
@@ -407,20 +473,104 @@ html {
     align-items: center;
     gap: 1rem;
     flex-wrap: nowrap;
-    width: 55%;
+    width: 60%;
   }
-  #main #about .information {
+  #main #about .main-information {
+    margin-top: 4rem;
+  }
+  #main #about .main-information .information {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: nowrap;
+  }
+  #main #about .main-information .information_box {
+    width: 70vw;
+    height: 40vw;
+  }
+}
+
+#gallery #gallery-photos {
+  margin: 10vw;
+}
+#gallery #gallery-photos .column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 3rem;
+  flex-wrap: nowrap;
+}
+#gallery #gallery-photos .column .photo-container {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 1rem;
+  flex-wrap: nowrap;
+}
+#gallery #gallery-photos .column .photo-container_photo {
+  width: 100%;
+  border: black 1px solid;
+}
+#gallery #gallery-photos .column .photo-container_button {
+  cursor: pointer;
+  border: 1px solid black;
+  padding: 0.4rem 0.3rem;
+  background: none;
+}
+@media (orientation: landscape) {
+  #gallery #gallery-photos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+  #gallery #gallery-photos .column {
+    width: 22%;
+  }
+}
+@media (orientation: portrait) {
+  #gallery #gallery-photos {
+    padding-top: 4rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     gap: 1rem;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
   }
-  #main #about .information_box {
-    width: 40vw;
-    height: 20vw;
+  #gallery #gallery-photos .column {
+    width: 80%;
+    height: fit-content;
   }
+}
+#gallery [data-photo=c1_01] {
+  height: 40vh;
+}
+#gallery [data-photo=c1_02] {
+  height: 36vh;
+}
+#gallery [data-photo=c2_01] {
+  height: 30vh;
+}
+#gallery [data-photo=c2_02] {
+  height: 40vh;
+}
+#gallery [data-photo=c3_01] {
+  height: 40vh;
+}
+#gallery [data-photo=c4_01] {
+  height: 40vh;
+}
+#gallery [data-photo=c4_02] {
+  height: 40vh;
 }
 
 /*# sourceMappingURL=style.css.map */
