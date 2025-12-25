@@ -9,6 +9,10 @@
   }
 }
 
+/*font-family: "ciclo-display", sans-serif;
+font-weight: 400;
+font-style: normal;*/
+
 @mixin responsive-font($property, $mobile-size, $tablet-size: null, $desktop-size: null) {
   #{$property}: $mobile-size;
 

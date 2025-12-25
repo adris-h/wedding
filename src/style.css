@@ -1,3 +1,6 @@
+/*font-family: "ciclo-display", sans-serif;
+font-weight: 400;
+font-style: normal;*/
 body p, body h1, body {
   margin: 0;
 }
@@ -7,7 +10,7 @@ body p, body h1, body {
   height: 100%;
 }
 
-#gallery, #main {
+#rsvp, #gallery, #main {
   width: 100vw;
   height: 100vh;
 }
@@ -571,6 +574,168 @@ html {
 }
 #gallery [data-photo=c4_02] {
   height: 40vh;
+}
+
+#rsvp #rsvp-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  flex-wrap: nowrap;
+  box-sizing: border-box;
+  padding: 10vw;
+}
+#rsvp #rsvp-content h1 {
+  font-size: var(--heading-size);
+}
+#rsvp #rsvp-content #submit {
+  cursor: pointer;
+}
+#rsvp #rsvp-content #rsvp-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: nowrap;
+  margin-top: 4rem;
+  width: 100%;
+}
+#rsvp #rsvp-content #rsvp-form .text-input {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: nowrap;
+}
+#rsvp #rsvp-content #rsvp-form .rsvp-input {
+  position: relative;
+  width: 100%;
+}
+#rsvp #rsvp-content #rsvp-form .rsvp-input.text {
+  width: 80%;
+}
+#rsvp #rsvp-content #rsvp-form .rsvp-input.text input {
+  font-size: 20px;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  padding: 5px 0;
+  background-color: transparent;
+  outline: none;
+  margin-top: 1rem;
+  font-family: "ciclo-display", sans-serif;
+  color: #5b4f48;
+}
+#rsvp #rsvp-content #rsvp-form .rsvp-input.text input.is-invalid {
+  border-bottom: 2px solid rgba(238, 64, 64, 0.39);
+}
+#rsvp #rsvp-content #rsvp-form .rsvp-input.text input.is-invalid ~ .underline {
+  background-color: rgba(238, 64, 64, 0.69);
+}
+#rsvp #rsvp-content #rsvp-form .rsvp-input.text .label {
+  top: 0;
+  left: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+#rsvp #rsvp-content #rsvp-form .rsvp-input.text .underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #5b4f48;
+  transform: scaleX(0);
+  transition: all 0.3s ease;
+}
+#rsvp #rsvp-content #rsvp-form .rsvp-input.text input:focus + .underline,
+#rsvp #rsvp-content #rsvp-form .rsvp-input.text input:valid + .underline {
+  transform: scaleX(1);
+}
+#rsvp #rsvp-content #rsvp-form .rsvp-input.checkbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: nowrap;
+  width: 50%;
+}
+#rsvp #rsvp-content #rsvp-form .rsvp-input.checkbox h3 {
+  margin-bottom: 0.8rem;
+  margin-top: 0;
+}
+#rsvp #rsvp-content #rsvp-form .rsvp-input.checkbox .checkbox-container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: nowrap;
+}
+#rsvp #rsvp-content #rsvp-form .rsvp-input.checkbox .checkbox-container .custom-checkbox {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: nowrap;
+  width: 1rem;
+  aspect-ratio: 1/1;
+  border: none;
+  position: relative;
+}
+#rsvp #rsvp-content #rsvp-form .rsvp-input.checkbox .checkbox-container .custom-checkbox input {
+  width: 110%;
+  height: 110%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 0;
+  margin: 0;
+}
+#rsvp #rsvp-content #rsvp-form .rsvp-input.checkbox .checkbox-container .custom-checkbox .check {
+  height: 1rem;
+  aspect-ratio: 1/1;
+  border: 2px solid #333;
+  border-radius: 4px;
+  position: relative;
+  margin: 0;
+}
+#rsvp #rsvp-content #rsvp-form .rsvp-input.checkbox .checkbox-container .custom-checkbox .check:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0.6rem;
+  aspect-ratio: 1/1;
+  background-color: #333;
+  border: none;
+  opacity: 0;
+}
+#rsvp #rsvp-content #rsvp-form .rsvp-input.checkbox .checkbox-container .custom-checkbox input:checked + .check:after {
+  opacity: 1;
+  animation: jump 200ms ease-in-out;
+}
+@keyframes jump {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -19,6 +19,7 @@
 
       <!--JS SCRIPT-->
       <script defer src="dist/index.js"></script>
+      <script src="dist/form.js" type="module"></script>
   </head>
   <body>
       <nav id="nav-desktop">
@@ -48,5 +49,60 @@
               </ul>
           </div>
       </nav>
+
+    <main id="rsvp">
+        <div id="rsvp-content">
+            <h1>Dejte nám vědět, zda dorazíte</h1>
+            <form action="" id="rsvp-form">
+                <div class="text-input">
+                    <div class="rsvp-input text">
+                        <label for="name" class="label">Jméno & Příjmení</label>
+                        <input name="name" id="name" type="text" required="">
+                        <div class="underline"></div>
+                    </div>
+                    <!--<div class="rsvp-input text">
+                        <label for="email" class="label">Email</label>
+                        <input id="email" name="email" type="email" required="">
+                        <div class="underline"></div>
+                    </div>-->
+                    <div class="rsvp-input text">
+                        <label for="tel" class="label">Telefon</label>
+                        <input name="tel" id="tel" type="tel" required="">
+                        <div class="underline"></div>
+                    </div>
+                </div>
+                <div class="rsvp-input checkbox">
+                    <h3>Zúčastním se</h3>
+                    <span class="checkbox-container">
+                        <label for="ceremony">Obřadu</label>
+                        <span class="custom-checkbox">
+                            <input type="checkbox" name="ceremony" id="ceremony" checked>
+                            <span class="check"></span>
+                        </span>
+                    </span>
+                    <span class="checkbox-container">
+                        <label for="celebration">Oslavy</label>
+                        <span class="custom-checkbox">
+                            <input type="checkbox" name="celebration" id="celebration" checked>
+                            <span class="check"></span>
+                        </span>
+                    </span>
+                    <span class="checkbox-container">
+                        <label for="no-attendance">Nezůčastním se vůbec</label>
+                        <span class="custom-checkbox">
+                            <input type="checkbox" name="no-attendance" id="no-attendance">
+                            <span class="check"> </span>
+                        </span>
+                    </span>
+                </div>
+            </form>
+            <button id="submit">Odeslat</button>
+        </div>
+        <!--<div>
+            <h2>Těšíme se na vás!</h2>
+            <h3>Dominika & Mirek</h3>
+        </div>-->
+
+    </main>
   </body>
 </html>

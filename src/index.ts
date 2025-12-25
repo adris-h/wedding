@@ -165,32 +165,36 @@ requestAnimationFrame(raf);
 
 gsap.ticker.lagSmoothing(0);
 
-// Parallax timeline
-const tl = gsap.timeline({
-    scrollTrigger: {
+const pageHero = document.getElementById('hero') as HTMLElement;
+
+if(pageHero){
+    // Parallax timeline
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: "#hero",
+            start: "top top",
+            end: "+=100%",
+            scrub: 0
+        }
+    });
+
+    const layers = gsap.utils.toArray(".parallax") as HTMLElement[];
+
+    layers.forEach(layer => {
+        const depth = parseFloat(layer.dataset.depth || "0");
+        const movement = -(layer.offsetHeight * depth);
+        tl.to(layer, {y: movement, ease: "none"}, 0);
+    });
+
+// Separate pin
+    ScrollTrigger.create({
         trigger: "#hero",
         start: "top top",
         end: "+=100%",
-        scrub: 0
-    }
-});
-
-const layers = gsap.utils.toArray(".parallax") as HTMLElement[];
-
-layers.forEach(layer => {
-    const depth = parseFloat(layer.dataset.depth || "0");
-    const movement = -(layer.offsetHeight * depth);
-    tl.to(layer, {y: movement, ease: "none"}, 0);
-});
-
-// Separate pin
-ScrollTrigger.create({
-    trigger: "#hero",
-    start: "top top",
-    end: "+=100%",
-    pin: true,
-    pinSpacing: false
-});
+        pin: true,
+        pinSpacing: false
+    });
+}
 
 /*gsap.to("#hero_background", {
     opacity: 0,
@@ -205,3 +209,4 @@ ScrollTrigger.create({
 
 
 // EVENT LISTENERS
+

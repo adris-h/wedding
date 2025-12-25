@@ -66,3 +66,9 @@ html{
 
   @import "components/gallery/gallery";
 }
+
+#rsvp{
+  @extend %section-size;
+
+  @import "components/rsvp/rsvp-form";
+}
