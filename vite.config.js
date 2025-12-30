@@ -1,3 +1,10 @@
 export default {
-    outDir: 'docs'
+    build: {
+        rollupOptions: {
+            input: {
+                main: 'index.html',
+                rsvp: 'rsvp.html'
+            }
+        }
+    }
 }
