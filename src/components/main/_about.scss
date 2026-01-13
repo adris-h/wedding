@@ -17,16 +17,18 @@
   }
 
   #people{
-    height: 75vw;
+    height: fit-content;
+    h2{
+      margin-bottom: 1rem;
+    }
     p{
       width: 80%;
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
     }
     .information{
-      height: 90%;
       &_box{
         border: none;
-        height: 100%;
+        height: 80%;
         h4, h3{
           margin: 0;
         }
@@ -37,9 +39,19 @@
       }
       &_photo{
         border: 1px solid black;
-        width: 70%;
-        height: 70%;
+        aspect-ratio: 3/4;
+        height: 20rem;
         margin-bottom: 1rem;
+
+        background-size: cover;
+
+        &[data-photo="tonda"]{
+          background-image: url("images/tonda.webp");
+        }
+
+        &[data-photo="peta"]{
+          background-image: url("images/peta.webp");
+        }
 
       }
     }

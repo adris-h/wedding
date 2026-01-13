@@ -334,18 +334,18 @@ html {
   transition: 400ms;
 }
 #main #about #people {
-  height: 75vw;
+  height: fit-content;
+}
+#main #about #people h2 {
+  margin-bottom: 1rem;
 }
 #main #about #people p {
   width: 80%;
-  margin-bottom: 2rem;
-}
-#main #about #people .information {
-  height: 90%;
+  margin-bottom: 1rem;
 }
 #main #about #people .information_box {
   border: none;
-  height: 100%;
+  height: 80%;
 }
 #main #about #people .information_box h4, #main #about #people .information_box h3 {
   margin: 0;
@@ -355,9 +355,16 @@ html {
 }
 #main #about #people .information_photo {
   border: 1px solid black;
-  width: 70%;
-  height: 70%;
+  aspect-ratio: 3/4;
+  height: 20rem;
   margin-bottom: 1rem;
+  background-size: cover;
+}
+#main #about #people .information_photo[data-photo=tonda] {
+  background-image: url("images/tonda.webp");
+}
+#main #about #people .information_photo[data-photo=peta] {
+  background-image: url("images/peta.webp");
 }
 #main #about #countdown {
   color: #5b4f48;
