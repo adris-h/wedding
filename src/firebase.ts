@@ -10,12 +10,15 @@ export const db = getFirestore(app);
 
 export async function getFormData(data: any) {
     try {
+        //console.log("trying Firebase");
         const docRef = await addDoc(collection(db, 'rsvps'), {
             ...data,
             timestamp: new Date()
         });
-        console.log("Document written with ID: ", docRef.id);
-    } catch (e) {
-        console.error("Error adding document: ", e);
+        //console.log("Document written with ID: ", docRef.id);
+        return docRef.id;
+    } catch (e: any) {
+        throw e;
     }
 }
+

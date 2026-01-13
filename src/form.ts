@@ -5,10 +5,9 @@ const nameInput = document.getElementById("name") as HTMLInputElement;
 const telInput = document.getElementById("tel") as HTMLInputElement;
 const submitButton = document.getElementById("submit") as HTMLButtonElement;
 
-
-
-
 let errorCode: string = "";
+
+console.log("connected")
 
 notAttendingInput?.addEventListener("change", () => {
     if (notAttendingInput.checked) {
@@ -110,32 +109,26 @@ async function submit() {
         notAttending: notAttendingInput.checked
     };
 
-    console.log("Submitting:", formData);
-
     // TODO: Send to Firebase here
 
     try {
-        console.log("before");
         await getFormData(formData);
-
         nameInput.value = "";
         telInput.value = "";
 
-        alert("Děkujeme za potvrzení!");
-        console.log("✅ Form submitted successfully!");
     } catch (error) {
-        console.error("❌ Error submitting:", error);
-        alert("Chyba při odesílání. Zkuste to prosím znovu.");
+        console.error("Error :", error);
     }
 }
 
 submitButton?.addEventListener("click", (e) => {
     e.preventDefault();
 
-    if (validateForm()) {
+    const isValid = validateForm();
+    if (isValid) {
         submit();
     } else{
-        console.log("Error: ", validateForm());
+        console.log("Error");
     }
 });
 
