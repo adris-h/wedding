@@ -85,6 +85,8 @@
 
   #ceremony{
     margin-top: 10rem;
+
+
   }
 
   #gifts{
@@ -150,9 +152,10 @@
 
 
       &_box{
-        border: 1px solid black;
         text-decoration: none;
         transition: $transition;
+
+
 
         &:hover{
           transform: scale(1.01);

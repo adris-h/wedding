@@ -464,7 +464,6 @@ html {
   text-align: center;
 }
 #main #about .main-information .information_box {
-  border: 1px solid black;
   text-decoration: none;
   transition: 400ms;
 }
