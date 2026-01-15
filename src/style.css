@@ -398,9 +398,6 @@ html {
 #main #about #gifts .information {
   justify-content: center;
 }
-#main #about #gifts p {
-  text-align: left;
-}
 #main #about p {
   font-family: Montserrat;
 }
@@ -466,6 +463,12 @@ html {
 #main #about .main-information .information_box {
   text-decoration: none;
   transition: 400ms;
+}
+#main #about .main-information .information_box:not(.frame, .embed) {
+  background-image: url("svgs/border2.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 #main #about .main-information .information_box:hover {
   transform: scale(1.01);
@@ -650,11 +653,23 @@ html {
   font-size: var(--heading-size);
 }
 #rsvp #rsvp-content #submit {
+  margin-top: 2rem;
   cursor: pointer;
+  border: 2px solid #ccc;
+  padding: 0.2rem 0.75rem;
+  outline: none;
+  background-color: transparent;
+  font-family: Montserrat;
+  font-size: var(--font-size-desktop);
+  color: #5b4f48;
+  transition: border-color ease-in-out 0.15s;
+}
+#rsvp #rsvp-content #submit:hover {
+  border: 2px solid #5b4f48;
 }
 #rsvp #rsvp-content #rsvp-form {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
   gap: 2rem;
@@ -671,14 +686,68 @@ html {
   gap: 2rem;
   flex-wrap: nowrap;
 }
-#rsvp #rsvp-content #rsvp-form .rsvp-input {
+#rsvp #rsvp-content #rsvp-form .text-input .rsvp-name {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+#rsvp #rsvp-content #rsvp-form .text-input .rsvp-attendance {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+#rsvp #rsvp-content #rsvp-form .text-input .rsvp-attendance .rsvp-input {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: nowrap;
+  width: 50%;
+}
+#rsvp #rsvp-content #rsvp-form .text-input .rsvp-attendance .rsvp-input input {
+  font-size: 20px;
+  width: 20%;
+  border: 2px solid #ccc;
+  padding: 5px;
+  background-color: transparent;
+  outline: none;
+  margin-bottom: 0;
+  transition: border-color ease-in-out 0.15s;
+  font-family: "ciclo-display", sans-serif;
+  color: #5b4f48;
+}
+#rsvp #rsvp-content #rsvp-form .text-input .rsvp-attendance .rsvp-input input:focus {
+  border: 2px solid #5b4f48;
+}
+#rsvp #rsvp-content #rsvp-form .text-input .rsvp-attendance .rsvp-input input.is-invalid {
+  border: 2px solid rgba(238, 64, 64, 0.69);
+}
+#rsvp #rsvp-content #rsvp-form .rsvp-input:not(.attendance) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+#rsvp #rsvp-content #rsvp-form .rsvp-input:not(.attendance).text {
+  width: 50%;
+}
+#rsvp #rsvp-content #rsvp-form .rsvp-input:not(.attendance).text .input-holder {
   position: relative;
   width: 100%;
 }
-#rsvp #rsvp-content #rsvp-form .rsvp-input.text {
-  width: 80%;
-}
-#rsvp #rsvp-content #rsvp-form .rsvp-input.text input {
+#rsvp #rsvp-content #rsvp-form .rsvp-input:not(.attendance).text .input-holder input {
   font-size: 20px;
   width: 100%;
   border: none;
@@ -687,22 +756,17 @@ html {
   background-color: transparent;
   outline: none;
   margin-top: 1rem;
+  margin-bottom: 0;
   font-family: "ciclo-display", sans-serif;
   color: #5b4f48;
 }
-#rsvp #rsvp-content #rsvp-form .rsvp-input.text input.is-invalid {
+#rsvp #rsvp-content #rsvp-form .rsvp-input:not(.attendance).text .input-holder input.is-invalid {
   border-bottom: 2px solid rgba(238, 64, 64, 0.39);
 }
-#rsvp #rsvp-content #rsvp-form .rsvp-input.text input.is-invalid ~ .underline {
+#rsvp #rsvp-content #rsvp-form .rsvp-input:not(.attendance).text .input-holder input.is-invalid + .underline {
   background-color: rgba(238, 64, 64, 0.69);
 }
-#rsvp #rsvp-content #rsvp-form .rsvp-input.text .label {
-  top: 0;
-  left: 0;
-  transition: all 0.3s ease;
-  pointer-events: none;
-}
-#rsvp #rsvp-content #rsvp-form .rsvp-input.text .underline {
+#rsvp #rsvp-content #rsvp-form .rsvp-input:not(.attendance).text .input-holder .underline {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -710,26 +774,35 @@ html {
   width: 100%;
   background-color: #5b4f48;
   transform: scaleX(0);
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
 }
-#rsvp #rsvp-content #rsvp-form .rsvp-input.text input:focus + .underline,
-#rsvp #rsvp-content #rsvp-form .rsvp-input.text input:valid + .underline {
+#rsvp #rsvp-content #rsvp-form .rsvp-input:not(.attendance).text .input-holder input:focus + .underline,
+#rsvp #rsvp-content #rsvp-form .rsvp-input:not(.attendance).text .input-holder input:valid + .underline {
   transform: scaleX(1);
 }
-#rsvp #rsvp-content #rsvp-form .rsvp-input.checkbox {
+#rsvp #rsvp-content #rsvp-form .rsvp-input:not(.attendance).text .label {
+  top: 0;
+  left: 0;
+  transition: all 0.3s ease-in-out;
+  pointer-events: none;
+  width: 60%;
+}
+#rsvp #rsvp-content #rsvp-form .rsvp-input:not(.attendance).checkbox {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
   gap: 1rem;
   flex-wrap: nowrap;
+  width: 100%;
+}
+#rsvp #rsvp-content #rsvp-form .rsvp-input:not(.attendance).checkbox h3 {
+  margin: 0;
+}
+#rsvp #rsvp-content #rsvp-form .rsvp-input:not(.attendance).checkbox .container {
   width: 50%;
 }
-#rsvp #rsvp-content #rsvp-form .rsvp-input.checkbox h3 {
-  margin-bottom: 0.8rem;
-  margin-top: 0;
-}
-#rsvp #rsvp-content #rsvp-form .rsvp-input.checkbox .checkbox-container {
+#rsvp #rsvp-content #rsvp-form .rsvp-input:not(.attendance).checkbox .container .checkbox-container {
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-end;
@@ -737,7 +810,7 @@ html {
   gap: 1rem;
   flex-wrap: nowrap;
 }
-#rsvp #rsvp-content #rsvp-form .rsvp-input.checkbox .checkbox-container .custom-checkbox {
+#rsvp #rsvp-content #rsvp-form .rsvp-input:not(.attendance).checkbox .container .checkbox-container .custom-checkbox {
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-end;
@@ -749,7 +822,7 @@ html {
   border: none;
   position: relative;
 }
-#rsvp #rsvp-content #rsvp-form .rsvp-input.checkbox .checkbox-container .custom-checkbox input {
+#rsvp #rsvp-content #rsvp-form .rsvp-input:not(.attendance).checkbox .container .checkbox-container .custom-checkbox input {
   width: 110%;
   height: 110%;
   top: 50%;
@@ -761,7 +834,7 @@ html {
   opacity: 0;
   margin: 0;
 }
-#rsvp #rsvp-content #rsvp-form .rsvp-input.checkbox .checkbox-container .custom-checkbox .check {
+#rsvp #rsvp-content #rsvp-form .rsvp-input:not(.attendance).checkbox .container .checkbox-container .custom-checkbox .check {
   height: 1rem;
   aspect-ratio: 1/1;
   border: 2px solid #333;
@@ -769,7 +842,7 @@ html {
   position: relative;
   margin: 0;
 }
-#rsvp #rsvp-content #rsvp-form .rsvp-input.checkbox .checkbox-container .custom-checkbox .check:after {
+#rsvp #rsvp-content #rsvp-form .rsvp-input:not(.attendance).checkbox .container .checkbox-container .custom-checkbox .check:after {
   content: "";
   position: absolute;
   top: 50%;
@@ -781,7 +854,7 @@ html {
   border: none;
   opacity: 0;
 }
-#rsvp #rsvp-content #rsvp-form .rsvp-input.checkbox .checkbox-container .custom-checkbox input:checked + .check:after {
+#rsvp #rsvp-content #rsvp-form .rsvp-input:not(.attendance).checkbox .container .checkbox-container .custom-checkbox input:checked + .check:after {
   opacity: 1;
   animation: jump 200ms ease-in-out;
 }

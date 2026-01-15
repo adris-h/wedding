@@ -93,13 +93,11 @@
     .information{
       justify-content: center;
     }
-    p{
-      text-align: left;
-    }
   }
   p{
     font-family: Montserrat;
   }
+
   #dresscode{
     .information{
       flex-direction: column;
@@ -154,7 +152,12 @@
         text-decoration: none;
         transition: $transition;
 
-
+        &:not(.frame, .embed){
+          background-image: url("svgs/border2.svg");
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: contain;
+        }
 
         &:hover{
           transform: scale(1.01);

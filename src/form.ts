@@ -1,9 +1,12 @@
 const ceremonyInput = document.getElementById("ceremony") as HTMLInputElement;
-const celebrationInput = document.getElementById("celebration") as HTMLInputElement;
+const feastInput = document.getElementById("feast") as HTMLInputElement;
+const partyInput = document.getElementById("party") as HTMLInputElement;
 const notAttendingInput = document.getElementById("no-attendance") as HTMLInputElement;
 const nameInput = document.getElementById("name") as HTMLInputElement;
-const telInput = document.getElementById("tel") as HTMLInputElement;
+const surnameInput = document.getElementById("surname") as HTMLInputElement;
 const submitButton = document.getElementById("submit") as HTMLButtonElement;
+const adultsAmount = document.getElementById("adults") as HTMLInputElement;
+const kidsAmount = document.getElementById("kids") as HTMLInputElement;
 
 let errorCode: string = "";
 
@@ -12,7 +15,8 @@ console.log("connected")
 notAttendingInput?.addEventListener("change", () => {
     if (notAttendingInput.checked) {
         ceremonyInput.checked = false;
-        celebrationInput.checked = false;
+        partyInput.checked = false;
+        feastInput.checked = false;
     }
 });
 
@@ -22,80 +26,80 @@ ceremonyInput?.addEventListener("change", () => {
     }
 });
 
-celebrationInput?.addEventListener("change", () => {
-    if (celebrationInput.checked) {
+partyInput?.addEventListener("change", () => {
+    if (partyInput.checked) {
         notAttendingInput.checked = false;
     }
 });
+
+feastInput?.addEventListener("change", () => {
+    if (feastInput.checked) {
+        notAttendingInput.checked = false;
+    }
+})
 
 nameInput?.addEventListener("input", () => {
     nameInput.classList.remove("is-invalid");
     nameInput.placeholder = "";
 });
 
-telInput?.addEventListener("input", () => {
-    telInput.classList.remove("is-invalid");
-    telInput.placeholder = "";
+surnameInput?.addEventListener("input", () => {
+    surnameInput.classList.remove("is-invalid");
+    surnameInput.placeholder = "";
 });
 
+kidsAmount?.addEventListener("input", () => {
+    kidsAmount.classList.remove("is-invalid");
+})
+
+adultsAmount?.addEventListener("input", () => {
+    adultsAmount.classList.remove("is-invalid");
+})
 
 function validateForm(): boolean {
     let isValid = true;
 
     nameInput.classList.remove("is-invalid");
-    telInput.classList.remove("is-invalid");
+    surnameInput.classList.remove("is-invalid");
 
-    const nameValue = nameInput.value.trim();
+    const nameValue = nameInput.value;
+    const surnameValue = surnameInput.value;
+    const kidsValue = kidsAmount.value;
+    const adultsValue = adultsAmount.value;
+
     if (!nameValue) {
         nameInput.classList.add("is-invalid");
-        nameInput.placeholder = "Zadej jméno a příjmení";
+        nameInput.placeholder = "Zadej jméno";
 
         errorCode = "001"
 
         isValid = false;
-    } else if (!isValidName(nameValue)) {
-        nameInput.classList.add("is-invalid");
-        nameInput.placeholder = "Zadej JMÉNO a PŘÍJMENÍ";
-
-        errorCode = "002"
-
+    } else if(!surnameValue){
+        surnameInput.classList.add("is-invalid");
+        surnameInput.placeholder = "Zadej příjmení";
         isValid = false;
-    }
-
-    const phoneValue = telInput.value.trim();
-    if (!phoneValue) {
-        telInput.classList.add("is-invalid");
-        telInput.placeholder = "Zadej telefonní číslo";
-
-        errorCode = "003"
-
+    } else if(!kidsValue){
+        kidsAmount.classList.add("is-invalid");
         isValid = false;
-    } else if (!isValidPhoneNumber(phoneValue)) {
-        telInput.classList.add("is-invalid");
-        telInput.placeholder = "Neplatné telefonní číslo";
-
-        errorCode = "004"
-
+    } else if(!adultsValue){
+        adultsAmount.classList.add("is-invalid");
         isValid = false;
     }
 
     return isValid;
 }
 
-function isValidPhoneNumber(phone: string): boolean {
-    const cleaned = phone.replace(/[\s\-]/g, '');
-    const pattern = /^[1-9][0-9]{8}$/;
-    return pattern.test(cleaned);
-}
 
-function isValidName(name: string): boolean {
-    const trimmed = name.trim();
+// function isValidName(name: string): boolean {
+//     const trimmed = name.trim();
+//
+//     if (!trimmed.includes(' ')) {
+//         return false;
+//     }
+//     return true;
+// }
 
-    if (!trimmed.includes(' ')) {
-        return false;
-    }
-    return true;
-}
+
 
 
 import {getFormData} from "./firebase";
@@ -103,18 +107,27 @@ import {getFormData} from "./firebase";
 async function submit() {
     const formData = {
         name: nameInput.value.trim(),
-        phone: telInput.value.trim(),
-        attendingCeremony: ceremonyInput.checked,
-        attendingCelebration: ceremonyInput.checked,
-        notAttending: notAttendingInput.checked
-    };
+        surname: surnameInput.value.trim(),
 
-    // TODO: Send to Firebase here
+        attendingCeremony: ceremonyInput.checked,
+        attendingFeast: feastInput.checked,
+        attentingParty: partyInput.checked,
+        notAttending: notAttendingInput.checked,
+
+        kidsAmount: kidsAmount.value,
+        adultsAmount: adultsAmount.checked,
+    };
 
     try {
         await getFormData(formData);
         nameInput.value = "";
-        telInput.value = "";
+        surnameInput.value = "";
+        kidsAmount.value = "";
+        adultsAmount.value = "";
+        ceremonyInput.checked = false;
+        feastInput.checked = false;
+        partyInput.checked = false;
+        notAttendingInput.checked = false;
 
     } catch (error) {
         console.error("Error :", error);
@@ -125,6 +138,7 @@ submitButton?.addEventListener("click", (e) => {
     e.preventDefault();
 
     const isValid = validateForm();
+
     if (isValid) {
         submit();
     } else{
