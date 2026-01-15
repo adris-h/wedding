@@ -3,8 +3,6 @@
 #nav-desktop{
   position: fixed;
   width: 100vw;
-  //transform: translateX(-50%);
-  //border-bottom: 1px solid red;
   @include flex(row);
   padding-top: 1rem;
   z-index: $nav-z;
@@ -21,7 +19,7 @@
     position: relative;
     @include flex(row, $justify: space-between);
     width: 90%;
-    height: 4rem;
+    height: 3rem;
     border: $txt-clr 1px solid;
     background-color: $bcg-clr;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.09);

@@ -13,7 +13,8 @@
     width: 100%;
     height: 100%;
     background: url("images/hero.webp");
-    background-size: contain;
+    background-position: center -2rem;
+    background-size: 120vw;
     z-index: -1;
   }
   &_heading{
@@ -22,6 +23,7 @@
     h1{
       @include fonts($m-font, var(--heading-size), $color: $txt-clr-light); // $txt-clr-light
 
+      text-shadow: rgba(1,1,1,0.65) 1px 1px 4px ;
       span {
         display: inline;
       }
