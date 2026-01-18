@@ -1,4 +1,25 @@
+header{
+  background-color: $txt-clr;
+  height: 60vh;
+  width: 100vw;
+
+  #header-container{
+    height: 100%;
+    width: 100%;
+    h1{
+      @include fonts($m-font, var(--heading-size), $txt-clr-light);
+    }
+    @include flex(row, center, center);
+  }
+}
+
 #gallery-photos{
+  p{
+    text-align: center;
+    margin-bottom: 8vh;
+    margin-top: -5vh;
+  }
+  font-family: $p-font;
   margin: 10vw;
   .column{
     @include flex(column, $align: flex-end, $gap: 3rem);

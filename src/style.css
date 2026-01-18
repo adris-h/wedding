@@ -16,7 +16,7 @@ body p, body h1, body {
 }
 
 :root {
-  --heading-size: calc(var(--font-size) * 3);
+  --heading-size: calc(var(--font-size) * 2);
   --subheading-size: calc(var(--font-size) * 2);
 }
 @media (orientation: portrait) {
@@ -43,7 +43,7 @@ body {
   box-sizing: border-box;
 }
 body h1 {
-  font-family: "ciclo-display", sans-serif;
+  font-family: "Cinzel", serif;
   font-size: var(--heading-size);
   font-weight: normal;
   line-height: normal;
@@ -105,7 +105,7 @@ html {
   flex-wrap: nowrap;
   text-decoration: none;
   cursor: pointer;
-  font-family: "ciclo-display", sans-serif;
+  font-family: "Cinzel", serif;
   font-size: 1rem;
   font-weight: normal;
   line-height: normal;
@@ -217,7 +217,7 @@ html {
 }
 #nav-mobile_menu ul a {
   text-decoration: none;
-  font-family: "ciclo-display", sans-serif;
+  font-family: "Cinzel", serif;
   font-size: 2rem;
   font-weight: normal;
   line-height: normal;
@@ -251,8 +251,8 @@ html {
 #main #hero {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
+  align-items: flex-end;
   gap: 0;
   flex-wrap: nowrap;
   height: 100vh;
@@ -281,8 +281,8 @@ html {
   flex-wrap: nowrap;
 }
 #main #hero_heading h1 {
-  font-family: "ciclo-display", sans-serif;
-  font-size: var(--heading-size);
+  font-family: "Cinzel", serif;
+  font-size: calc(var(--heading-size) * 1.5);
   font-weight: normal;
   line-height: normal;
   color: #f9f5ea;
@@ -313,7 +313,7 @@ html {
   height: fit-content;
   width: 100vw;
   background: #f9f5ea;
-  font-family: "ciclo-display", sans-serif;
+  font-family: "Cinzel", serif;
   font-size: var(--font-size);
   font-weight: normal;
   line-height: normal;
@@ -332,6 +332,9 @@ html {
   margin: 1rem;
   font-weight: normal;
 }
+#main #about b {
+  font-weight: 550;
+}
 #main #about * {
   transition: 400ms;
 }
@@ -344,6 +347,7 @@ html {
 #main #about #people p {
   width: 80%;
   margin-bottom: 1rem;
+  text-align: center;
 }
 #main #about #people .information_box {
   border: none;
@@ -435,10 +439,10 @@ html {
   border-radius: 50%;
 }
 #main #about #dresscode .information .colors_container span:nth-child(1) {
-  background-color: #385644;
+  background-color: #9cb2a1;
 }
 #main #about #dresscode .information .colors_container span:nth-child(2) {
-  background-color: #bab5a5;
+  background-color: #d5ccbc;
 }
 #main #about .main-information {
   width: 100vw;
@@ -455,6 +459,9 @@ html {
 }
 #main #about .main-information h2 {
   margin-bottom: 2rem;
+}
+#main #about .main-information p {
+  font-family: "Cinzel", serif;
 }
 #main #about .main-information .information {
   height: 100%;
@@ -521,7 +528,7 @@ html {
     border: 1px solid color-mix(in srgb, #5b4f48, 30% transparent);
   }
   #main #about .main-information .information_heading {
-    font-family: "ciclo-display", sans-serif;
+    font-family: "Cinzel", serif;
     font-size: var(--font-size);
     font-weight: normal;
     line-height: normal;
@@ -559,8 +566,36 @@ html {
   }
 }
 
+#gallery header {
+  background-color: #5b4f48;
+  height: 60vh;
+  width: 100vw;
+}
+#gallery header #header-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  flex-wrap: nowrap;
+}
+#gallery header #header-container h1 {
+  font-family: "Cinzel", serif;
+  font-size: var(--heading-size);
+  font-weight: #f9f5ea;
+  line-height: normal;
+  color: #5b4f48;
+}
 #gallery #gallery-photos {
+  font-family: "Cinzel", serif;
   margin: 10vw;
+}
+#gallery #gallery-photos p {
+  text-align: center;
+  margin-bottom: 8vh;
+  margin-top: -5vh;
 }
 #gallery #gallery-photos .column {
   display: flex;
@@ -649,10 +684,16 @@ html {
   gap: 0;
   flex-wrap: nowrap;
   box-sizing: border-box;
-  padding: 10vw;
+  padding: 8vw 10vw;
+  font-family: "Cinzel", serif;
 }
 #rsvp #rsvp-content h1 {
+  margin-top: 1.5rem;
   font-size: var(--heading-size);
+}
+#rsvp #rsvp-content h2 {
+  font-weight: 300;
+  margin: 0;
 }
 #rsvp #rsvp-content #submit {
   margin-top: 2rem;
@@ -661,7 +702,7 @@ html {
   padding: 0.2rem 0.75rem;
   outline: none;
   background-color: transparent;
-  font-family: Montserrat;
+  font-family: "Cinzel", serif;
   font-size: var(--font-size-desktop);
   color: #5b4f48;
   transition: border-color ease-in-out 0.15s;
@@ -676,7 +717,7 @@ html {
   align-items: flex-start;
   gap: 2rem;
   flex-wrap: nowrap;
-  margin-top: 4rem;
+  margin-top: 2rem;
   width: 100%;
 }
 #rsvp #rsvp-content #rsvp-form .text-input {
@@ -715,6 +756,9 @@ html {
   flex-wrap: nowrap;
   width: 50%;
 }
+#rsvp #rsvp-content #rsvp-form .text-input .rsvp-attendance .rsvp-input:nth-child(1) label {
+  width: 50%;
+}
 #rsvp #rsvp-content #rsvp-form .text-input .rsvp-attendance .rsvp-input input {
   font-size: 20px;
   width: 20%;
@@ -724,7 +768,7 @@ html {
   outline: none;
   margin-bottom: 0;
   transition: border-color ease-in-out 0.15s;
-  font-family: "ciclo-display", sans-serif;
+  font-family: "Cinzel", serif;
   color: #5b4f48;
 }
 #rsvp #rsvp-content #rsvp-form .text-input .rsvp-attendance .rsvp-input input:focus {
@@ -759,7 +803,7 @@ html {
   outline: none;
   margin-top: 1rem;
   margin-bottom: 0;
-  font-family: "ciclo-display", sans-serif;
+  font-family: "Cinzel", serif;
   color: #5b4f48;
 }
 #rsvp #rsvp-content #rsvp-form .rsvp-input:not(.attendance).text .input-holder input.is-invalid {

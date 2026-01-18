@@ -4,9 +4,15 @@
   width: 100%;
   @include flex(column);
   box-sizing: border-box;
-  padding: 10vw;
+  padding: 8vw 10vw ;
+  font-family: $p-font;
   h1{
+    margin-top: 1.5rem;
     font-size: var(--heading-size);
+  }
+  h2{
+    font-weight: 300;
+    margin: 0;
   }
   #submit{
     margin-top: 2rem;
@@ -28,7 +34,7 @@
 
   #rsvp-form {
     @include flex(column, space-between, flex-start, 2rem);
-    margin-top: 4rem;
+    margin-top: 2rem;
     width: 100%;
 
     .text-input{
@@ -47,6 +53,13 @@
         .rsvp-input{
           @include flex(row, flex-start, center, 2rem);
           width: 50%;
+
+           &:nth-child(1){
+             label{
+               width: 50%;
+             }
+           }
+
 
           input{
             font-size: 20px;

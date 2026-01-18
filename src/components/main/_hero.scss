@@ -1,6 +1,6 @@
 #hero{
   @extend %full-size;
-  @include flex(column);
+  @include flex(column, flex-end, flex-end);
   height: 100vh;
   z-index: 10;
   position: relative;
@@ -21,7 +21,7 @@
     width: 80%;
     @include flex(row);
     h1{
-      @include fonts($m-font, var(--heading-size), $color: $txt-clr-light); // $txt-clr-light
+      @include fonts($m-font, calc(var(--heading-size)*1.5), $color: $txt-clr-light); // $txt-clr-light
 
       text-shadow: rgba(1,1,1,0.65) 1px 1px 4px ;
       span {

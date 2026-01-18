@@ -12,6 +12,10 @@
     font-weight: normal;
   }
 
+  b{
+    font-weight: 550;
+  }
+
   *{
     transition: $transition;
   }
@@ -24,6 +28,7 @@
     p{
       width: 80%;
       margin-bottom: 1rem;
+      text-align: center;
     }
     .information{
       &_box{
@@ -120,10 +125,10 @@
             border-radius: 50%;
 
             &:nth-child(1){
-              background-color: #385644;;
+              background-color: #9cb2a1;;
             }
             &:nth-child(2){
-              background-color: #bab5a5;
+              background-color: #d5ccbc;
             }
           }
         }
@@ -141,6 +146,10 @@
     h2{
       margin-bottom: 2rem;
     }
+    p{
+      font-family: $p-font;
+    }
+
     .information{
       height: 100%;
       width: 80%;
@@ -148,9 +157,12 @@
       text-align: center;
 
 
+
+
       &_box{
         text-decoration: none;
         transition: $transition;
+
 
         &:not(.frame, .embed){
           background-image: url("svgs/border2.svg");
