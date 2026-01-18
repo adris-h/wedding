@@ -271,6 +271,12 @@ html {
   background-size: 120vw;
   z-index: -1;
 }
+@media (orientation: portrait) {
+  #main #hero_background {
+    background-position: -50rem 0;
+    background-size: cover;
+  }
+}
 #main #hero_heading {
   width: 80%;
   display: flex;
@@ -286,6 +292,7 @@ html {
   font-weight: normal;
   line-height: normal;
   color: #f9f5ea;
+  margin-bottom: 20vh;
   text-shadow: rgba(1, 1, 1, 0.65) 1px 1px 4px;
 }
 #main #hero_heading h1 span {
@@ -518,14 +525,23 @@ html {
   }
   #main #about .main-information .information_icon {
     width: 20%;
-    aspect-ratio: 1/1;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 0;
     flex-wrap: nowrap;
-    border: 1px solid color-mix(in srgb, #5b4f48, 30% transparent);
+    background-position: 50% 50%;
+    height: 5rem;
+  }
+  #main #about .main-information .information_icon[data-icon=hotel] {
+    background: url("svgs/hotel.svg") no-repeat;
+  }
+  #main #about .main-information .information_icon[data-icon=ceremony] {
+    background: url("svgs/rings.svg") no-repeat;
+  }
+  #main #about .main-information .information_icon[data-icon=restaurant] {
+    background: url("svgs/oslava.svg") no-repeat;
   }
   #main #about .main-information .information_heading {
     font-family: "Cinzel", serif;
@@ -533,6 +549,7 @@ html {
     font-weight: normal;
     line-height: normal;
     color: #5b4f48;
+    margin: 0.5rem;
   }
 }
 @media (orientation: portrait) {
@@ -567,7 +584,7 @@ html {
 }
 
 #gallery header {
-  background-color: #5b4f48;
+  background: url("images/galleryhero.png") no-repeat center center;
   height: 60vh;
   width: 100vw;
 }
@@ -584,9 +601,11 @@ html {
 #gallery header #header-container h1 {
   font-family: "Cinzel", serif;
   font-size: var(--heading-size);
-  font-weight: #f9f5ea;
+  font-weight: normal;
   line-height: normal;
   color: #5b4f48;
+  color: #f9f5ea;
+  text-shadow: 1px 1px 6px black;
 }
 #gallery #gallery-photos {
   font-family: "Cinzel", serif;
@@ -598,6 +617,7 @@ html {
   margin-top: -5vh;
 }
 #gallery #gallery-photos .column {
+  visibility: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;

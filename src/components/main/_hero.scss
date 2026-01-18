@@ -16,13 +16,18 @@
     background-position: center -2rem;
     background-size: 120vw;
     z-index: -1;
+
+    @include responsive(portrait) {
+      background-position: -50rem 0;
+      background-size: cover;
+    }
   }
   &_heading{
     width: 80%;
     @include flex(row);
     h1{
       @include fonts($m-font, calc(var(--heading-size)*1.5), $color: $txt-clr-light); // $txt-clr-light
-
+      margin-bottom: 20vh;
       text-shadow: rgba(1,1,1,0.65) 1px 1px 4px ;
       span {
         display: inline;
@@ -33,6 +38,7 @@
 
         display: flex;
         flex-direction: column;
+
 
         span {
           display: block;

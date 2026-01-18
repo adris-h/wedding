@@ -16,6 +16,7 @@
     font-weight: 550;
   }
 
+
   *{
     transition: $transition;
   }
@@ -203,13 +204,26 @@
 
         &_icon{
           width: 20%;
-          aspect-ratio: 1/1;
           @include flex(row);
-          border: 1px solid color-mix(in srgb, $txt-clr, 30% transparent);;
+          background-position: 50% 50%;
+          height: 5rem;
+
+          &[data-icon="hotel"]{
+            background: url("svgs/hotel.svg") no-repeat;
+          }
+
+          &[data-icon="ceremony"]{
+            background: url("svgs/rings.svg") no-repeat;
+          }
+
+          &[data-icon="restaurant"]{
+            background: url("svgs/oslava.svg") no-repeat;
+          }
         }
 
         &_heading{
-          @include fonts( $m-font, var(--font-size))
+          @include fonts( $m-font, var(--font-size));
+          margin: 0.5rem;
         }
       }
     }

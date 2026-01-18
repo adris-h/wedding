@@ -1,15 +1,18 @@
 header{
-  background-color: $txt-clr;
+  background: url("images/galleryhero.png") no-repeat center center ;
   height: 60vh;
   width: 100vw;
 
   #header-container{
     height: 100%;
     width: 100%;
-    h1{
-      @include fonts($m-font, var(--heading-size), $txt-clr-light);
-    }
     @include flex(row, center, center);
+    h1{
+      @include fonts($m-font, var(--heading-size));
+      color: $txt-clr-light;
+      text-shadow: 1px 1px 6px black
+    }
+
   }
 }
 
@@ -22,6 +25,7 @@ header{
   font-family: $p-font;
   margin: 10vw;
   .column{
+    visibility: hidden;
     @include flex(column, $align: flex-end, $gap: 3rem);
     .photo-container{
       width: 100%;
