@@ -3,7 +3,8 @@ export default {
         rollupOptions: {
             input: {
                 main: 'index.html',
-                rsvp: 'rsvp.html'
+                rsvp: 'rsvp.html',
+                gallery: 'gallery.html'
             }
         }
     }
