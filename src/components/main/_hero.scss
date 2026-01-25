@@ -11,14 +11,14 @@
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background: url("images/hero.webp");
-    background-position: center -2rem;
-    background-size: 120vw;
+    background-position: center;
+    background-size: 200vh;
     z-index: -1;
 
     @include responsive(portrait) {
-      background-position: -50rem 0;
+      background-position: -80vw;
       background-size: cover;
     }
   }

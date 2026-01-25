@@ -1,32 +1,33 @@
 header{
-  background: url("images/galleryhero.webp") no-repeat center center ;
-  height: 60vh;
+  height: 45vh;
   width: 100vw;
-
+  padding: 2vh;
   #header-container{
     height: 100%;
     width: 100%;
-    @include flex(row, center, center);
+    @include flex(row, center, flex-end);
     h1{
       @include fonts($m-font, var(--heading-size));
-      color: $txt-clr-light;
-      text-shadow: 1px 1px 6px black
+      color: $txt-clr;
+      //text-shadow: 1px 1px 6px black
     }
 
   }
 }
 
 #gallery-photos{
+
   p{
     text-align: center;
     margin-bottom: 8vh;
     margin-top: -5vh;
   }
   font-family: $p-font;
-  margin: 10vw;
+  margin: 4vw 8vw;
   .column{
+    display: none;
     visibility: hidden;
-    @include flex(column, $align: flex-end, $gap: 3rem);
+    //@include flex(column, $align: flex-end, $gap: 3rem);
     .photo-container{
       width: 100%;
       height: fit-content;

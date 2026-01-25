@@ -18,9 +18,10 @@ const navMobile = document.getElementById('nav-mobile');
 const navLinks = document.querySelectorAll<HTMLElement>('#nav-mobile_menu a');
 
 const body = document.querySelector<HTMLElement>('body');
+const overlay =  document.getElementById("overlay");
 
 // only if elements above exist
-if (menuButton && menuPopUp && navMobile && navLinks && body) {
+if (menuButton && menuPopUp && navMobile && navLinks && body && overlay) {
     console.log(" [1] menu button exists");
 
     // add an event listener
@@ -30,9 +31,15 @@ if (menuButton && menuPopUp && navMobile && navLinks && body) {
         if(menuButton.classList.contains('active')) {
             setTimeout(() => {onClick(menuButton, [menuPopUp, navMobile]);}, 200)
             body.style.overflow = 'auto'; // enable scrolling
+
+            overlay.style.display = 'none';
+            overlay.style.opacity = '0';
         } else{
             onClick(menuButton, [menuPopUp, navMobile]);
             body.style.overflow = 'hidden'; // disable scrolling
+
+            overlay.style.display = 'block';
+            overlay.style.opacity = '1';
         }
 
 
@@ -144,7 +151,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 
 const lenis = new Lenis({
-    duration: 0.3,
+    duration: 1,
     smoothWheel: true,
     smoothTouch: false,
     autoRaf: true,

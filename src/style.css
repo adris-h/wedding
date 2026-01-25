@@ -125,33 +125,34 @@ html {
   flex-wrap: nowrap;
   top: 0;
   width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0);
-  backdrop-filter: blur(0) brightness(100%);
-  padding: 0.5rem 0;
+  padding: 2rem 0;
   box-sizing: border-box;
   z-index: 120;
 }
 #nav-mobile * {
   transition: 400ms;
 }
-#nav-mobile.active {
+#nav-mobile #overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   background: rgba(0, 0, 0, 0);
-  backdrop-filter: blur(1px) brightness(100%);
-  z-index: 230;
+  backdrop-filter: blur(5px) brightness(100%);
+  display: none;
+  transition: 400ms;
 }
 #nav-mobile.active #nav-mobile_hamburger {
   box-shadow: 0 0 0;
 }
 #nav-mobile_hamburger {
   z-index: 120;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
-  background: #f9f5ea;
   position: fixed;
   font-size: 0.5rem;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   gap: 0;
   flex-wrap: nowrap;
@@ -163,8 +164,8 @@ html {
 #nav-mobile_hamburger #menu-button {
   border: none;
   background: none;
-  width: 4em;
-  height: 4em;
+  width: 4.5em;
+  height: 4.5em;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -175,8 +176,8 @@ html {
 }
 #nav-mobile_hamburger #menu-button > span {
   width: 100%;
-  height: 0.2em;
-  border-radius: 0.2em;
+  height: 0.25em;
+  border-radius: 0.25em;
   background-color: #5b4f48;
   transition: all 0.3s ease;
 }
@@ -184,14 +185,14 @@ html {
   width: 80%;
 }
 #nav-mobile_hamburger #menu-button.active > span:nth-child(1) {
-  transform: translateY(1.24em) rotate(-45deg);
+  transform: translateY(1.395em) rotate(-45deg);
 }
 #nav-mobile_hamburger #menu-button.active > span:nth-child(2) {
   width: 0;
   opacity: 0;
 }
 #nav-mobile_hamburger #menu-button.active > span:nth-child(3) {
-  transform: translateY(-1.24em) rotate(45deg);
+  transform: translateY(-1.395em) rotate(45deg);
 }
 #nav-mobile_menu {
   z-index: 1;
@@ -265,15 +266,15 @@ html {
   left: 0;
   top: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background: url("images/hero.webp");
-  background-position: center -2rem;
-  background-size: 120vw;
+  background-position: center;
+  background-size: 200vh;
   z-index: -1;
 }
 @media (orientation: portrait) {
   #main #hero_background {
-    background-position: -50rem 0;
+    background-position: -80vw;
     background-size: cover;
   }
 }
@@ -338,6 +339,7 @@ html {
 #main #about h2 {
   margin: 1rem;
   font-weight: normal;
+  text-align: center;
 }
 #main #about b {
   font-weight: 550;
@@ -346,6 +348,12 @@ html {
   transition: 400ms;
 }
 #main #about #people {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: nowrap;
   height: fit-content;
 }
 #main #about #people h2 {
@@ -353,7 +361,7 @@ html {
 }
 #main #about #people p {
   width: 80%;
-  margin-bottom: 1rem;
+  margin-bottom: 4rem;
   text-align: center;
 }
 #main #about #people .information_box {
@@ -379,12 +387,18 @@ html {
 #main #about #people .information_photo[data-photo=peta] {
   background-image: url("images/peta.webp");
 }
+@media (orientation: portrait) {
+  #main #about #people .information_photo {
+    height: 50rem;
+  }
+}
 #main #about #countdown {
   color: #5b4f48;
   padding: 1rem 3rem;
   aspect-ratio: 2.9/1;
   margin-top: 1rem;
   z-index: 104;
+  width: 45vw;
   background: url("svgs/frame_1.svg");
   background-repeat: no-repeat;
   background-position: center;
@@ -406,7 +420,7 @@ html {
   color: color-mix(in srgb, #5b4f48, 30% transparent);
 }
 #main #about #ceremony {
-  margin-top: 10rem;
+  margin-top: 5rem;
 }
 #main #about #gifts .information {
   justify-content: center;
@@ -535,13 +549,13 @@ html {
     height: 5rem;
   }
   #main #about .main-information .information_icon[data-icon=hotel] {
-    background: url("svgs/hotel.svg") no-repeat;
+    background: url("svgs/hotel.svg") no-repeat center;
   }
   #main #about .main-information .information_icon[data-icon=ceremony] {
-    background: url("svgs/rings.svg") no-repeat;
+    background: url("svgs/rings.svg") no-repeat center;
   }
   #main #about .main-information .information_icon[data-icon=restaurant] {
-    background: url("svgs/oslava.svg") no-repeat;
+    background: url("svgs/oslava.svg") no-repeat center;
   }
   #main #about .main-information .information_heading {
     font-family: "Cinzel", serif;
@@ -577,16 +591,52 @@ html {
     gap: 3rem;
     flex-wrap: nowrap;
   }
+  #main #about .main-information .information p {
+    width: 100%;
+  }
   #main #about .main-information .information_box {
     width: 70vw;
     height: 40vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    flex-wrap: nowrap;
+  }
+  #main #about .main-information .information_icon {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    flex-wrap: nowrap;
+    height: 9rem;
+  }
+  #main #about .main-information .information_icon[data-icon=hotel] {
+    background: url("svgs/hotel.svg") no-repeat center;
+  }
+  #main #about .main-information .information_icon[data-icon=ceremony] {
+    background: url("svgs/rings.svg") no-repeat center;
+  }
+  #main #about .main-information .information_icon[data-icon=restaurant] {
+    background: url("svgs/oslava.svg") no-repeat center;
+  }
+  #main #about .main-information .information_heading {
+    font-family: "Cinzel", serif;
+    font-size: var(--font-size);
+    font-weight: normal;
+    line-height: normal;
+    color: #5b4f48;
+    margin: 0.5rem;
   }
 }
 
 #gallery header {
-  background: url("images/galleryhero.webp") no-repeat center center;
-  height: 60vh;
+  height: 45vh;
   width: 100vw;
+  padding: 2vh;
 }
 #gallery header #header-container {
   height: 100%;
@@ -594,7 +644,7 @@ html {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   gap: 0;
   flex-wrap: nowrap;
 }
@@ -604,12 +654,11 @@ html {
   font-weight: normal;
   line-height: normal;
   color: #5b4f48;
-  color: #f9f5ea;
-  text-shadow: 1px 1px 6px black;
+  color: #5b4f48;
 }
 #gallery #gallery-photos {
   font-family: "Cinzel", serif;
-  margin: 10vw;
+  margin: 4vw 8vw;
 }
 #gallery #gallery-photos p {
   text-align: center;
@@ -617,13 +666,8 @@ html {
   margin-top: -5vh;
 }
 #gallery #gallery-photos .column {
+  display: none;
   visibility: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-  gap: 3rem;
-  flex-wrap: nowrap;
 }
 #gallery #gallery-photos .column .photo-container {
   width: 100%;
@@ -750,13 +794,77 @@ html {
   flex-wrap: nowrap;
 }
 #rsvp #rsvp-content #rsvp-form .text-input .rsvp-name {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  flex-wrap: nowrap;
   width: 100%;
+}
+@media (orientation: portrait) {
+  #rsvp #rsvp-content #rsvp-form .text-input .rsvp-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: nowrap;
+  }
+  #rsvp #rsvp-content #rsvp-form .text-input .rsvp-name .text {
+    width: 100%;
+  }
+  #rsvp #rsvp-content #rsvp-form .text-input .rsvp-name .rsvp-attendance {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+  #rsvp #rsvp-content #rsvp-form .text-input .rsvp-name .rsvp-attendance .rsvp-input {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  #rsvp #rsvp-content #rsvp-form .text-input .rsvp-name .rsvp-attendance .rsvp-input:nth-child(1) label {
+    width: 20%;
+  }
+  #rsvp #rsvp-content #rsvp-form .text-input .rsvp-name .rsvp-attendance .rsvp-input .input-holder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: nowrap;
+    width: 5%;
+    height: 100%;
+    flex-shrink: 0;
+  }
+}
+@media (orientation: landscape) {
+  #rsvp #rsvp-content #rsvp-form .text-input .rsvp-name {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: nowrap;
+  }
+  #rsvp #rsvp-content #rsvp-form .text-input .rsvp-name .text {
+    width: 50%;
+  }
+  #rsvp #rsvp-content #rsvp-form .text-input .rsvp-name .rsvp-attendance {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: nowrap;
+    width: 50%;
+  }
+  #rsvp #rsvp-content #rsvp-form .text-input .rsvp-name .rsvp-attendance .rsvp-input {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
 }
 #rsvp #rsvp-content #rsvp-form .text-input .rsvp-attendance {
   display: flex;
@@ -774,14 +882,27 @@ html {
   align-items: center;
   gap: 2rem;
   flex-wrap: nowrap;
-  width: 50%;
+  width: 100%;
+  gap: 2rem;
 }
 #rsvp #rsvp-content #rsvp-form .text-input .rsvp-attendance .rsvp-input:nth-child(1) label {
-  width: 50%;
+  width: fit-content;
+}
+#rsvp #rsvp-content #rsvp-form .text-input .rsvp-attendance .rsvp-input .input-holder {
+  width: 20%;
+  height: 100%;
+  aspect-ratio: 1/1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
 }
 #rsvp #rsvp-content #rsvp-form .text-input .rsvp-attendance .rsvp-input input {
   font-size: 20px;
-  width: 20%;
+  width: 100%;
   border: 2px solid #ccc;
   padding: 5px;
   background-color: transparent;
@@ -807,7 +928,12 @@ html {
   width: 100%;
 }
 #rsvp #rsvp-content #rsvp-form .rsvp-input:not(.attendance).text {
-  width: 50%;
+  width: 100%;
+}
+@media (orientation: landscape) {
+  #rsvp #rsvp-content #rsvp-form .rsvp-input:not(.attendance).text {
+    width: 50%;
+  }
 }
 #rsvp #rsvp-content #rsvp-form .rsvp-input:not(.attendance).text .input-holder {
   position: relative;
