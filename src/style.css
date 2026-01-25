@@ -164,8 +164,8 @@ html {
 #nav-mobile_hamburger #menu-button {
   border: none;
   background: none;
-  width: 4.5em;
-  height: 4.5em;
+  width: 3em;
+  height: 3em;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -176,8 +176,8 @@ html {
 }
 #nav-mobile_hamburger #menu-button > span {
   width: 100%;
-  height: 0.25em;
-  border-radius: 0.25em;
+  height: 0.15em;
+  border-radius: 0.15em;
   background-color: #5b4f48;
   transition: all 0.3s ease;
 }
@@ -185,14 +185,14 @@ html {
   width: 80%;
 }
 #nav-mobile_hamburger #menu-button.active > span:nth-child(1) {
-  transform: translateY(1.395em) rotate(-45deg);
+  transform: translateY(0.93em) rotate(-45deg);
 }
 #nav-mobile_hamburger #menu-button.active > span:nth-child(2) {
   width: 0;
   opacity: 0;
 }
 #nav-mobile_hamburger #menu-button.active > span:nth-child(3) {
-  transform: translateY(-1.395em) rotate(45deg);
+  transform: translateY(-0.93em) rotate(45deg);
 }
 #nav-mobile_menu {
   z-index: 1;
@@ -389,7 +389,8 @@ html {
 }
 @media (orientation: portrait) {
   #main #about #people .information_photo {
-    height: 50rem;
+    height: 30rem;
+    aspect-ratio: 3/4;
   }
 }
 #main #about #countdown {

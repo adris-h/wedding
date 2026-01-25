@@ -82,8 +82,8 @@
     //background: $bcg-clr;
     position: fixed;
     font-size: .5rem;
-    $icon-size: 4.5em;
-    $line-height: 0.25em;
+    $icon-size: 3em;
+    $line-height: 0.15em;
 
     @include flex(row, $justify:  flex-end, $align: center);
     padding: 2rem;
