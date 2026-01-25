@@ -63,7 +63,7 @@
 
       @include responsive(portrait) {
         &_photo{
-          height: 30rem;
+          height: 20rem;
           aspect-ratio: 3/4;
         }
       }

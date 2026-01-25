@@ -389,7 +389,7 @@ html {
 }
 @media (orientation: portrait) {
   #main #about #people .information_photo {
-    height: 30rem;
+    height: 20rem;
     aspect-ratio: 3/4;
   }
 }

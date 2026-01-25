@@ -7,7 +7,7 @@
 // VARIABLES
 
 
-console.log("script working")
+
 
 // MAIN
 
@@ -19,6 +19,8 @@ const navLinks = document.querySelectorAll<HTMLElement>('#nav-mobile_menu a');
 
 const body = document.querySelector<HTMLElement>('body');
 const overlay =  document.getElementById("overlay");
+
+console.log(menuButton);
 
 // only if elements above exist
 if (menuButton && menuPopUp && navMobile && navLinks && body && overlay) {
