@@ -7,8 +7,6 @@
 // VARIABLES
 
 
-
-
 // MAIN
 
 // 1
@@ -217,38 +215,6 @@ if(pageHero){
 });*/
 
 
-const animatedTexts = document.querySelectorAll('.animated-text') as unknown as HTMLElement[];
-
-if(animatedTexts){
-    animate();
-    window.requestAnimationFrame(raf);
-    window.addEventListener('load', animate);
-    window.addEventListener('reload', animate);
-    window.addEventListener('resize', location.reload);
-}
-
-
-function animate() {
-    animatedTexts.forEach((el: HTMLElement) => {
-        el.innerHTML = el.textContent
-            .split("")
-            .map((char: any) => `<span>${char}</span>`)
-            .join("");
-
-        gsap.from(el.querySelectorAll("span"), {
-            scrollTrigger: {
-                trigger: el,
-                start: "50% 85%",
-                end: "top 35%",
-                scrub: true,
-            },
-            opacity: 0.3,
-            y: 50,
-            duration: 1,
-            stagger: 0.1,
-        });
-    })
-}
 
 
 /*

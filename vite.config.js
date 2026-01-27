@@ -2,7 +2,8 @@ export default {
     build: {
         rollupOptions: {
             input: {
-                main: 'index.html',
+                input: 'src/index.ts',
+                index: 'index.html',
                 rsvp: 'rsvp.html',
                 gallery: 'gallery.html'
             }
