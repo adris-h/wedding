@@ -1,29 +1,30 @@
 gsap.registerPlugin(ScrollTrigger);
 const animatedTexts = document.querySelectorAll('.animated-text');
-
-animate();
 window.addEventListener('load', animate);
-window.addEventListener('reload', animate);
-window.addEventListener('resize', location.reload);
 
 function animate() {
-
     animatedTexts.forEach((el) => {
-        console.log("an: ", el);
         el.innerHTML = el.textContent
             .split("")
             .map((char) => `<span>${char}</span>`)
             .join("");
 
-        gsap.from(el.querySelectorAll("span"), {
+        gsap.set(el.querySelectorAll("span"), {
+            opacity: 0.3,
+            y: 50
+        });
+
+        gsap.to(el.querySelectorAll("span"), {
             scrollTrigger: {
                 trigger: el,
-                start: "50% 85%",
+                start: "top 85%",
                 end: "top 35%",
                 scrub: true,
+                immediateRender: false,
+                invalidateOnRefresh: true,
             },
-            opacity: 0.3,
-            y: 50,
+            opacity: 1,
+            y: 0,
             duration: 1,
             stagger: 0.1,
         });
