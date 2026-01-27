@@ -115,7 +115,7 @@ async function submit() {
         notAttending: notAttendingInput.checked,
 
         kidsAmount: kidsAmount.value,
-        adultsAmount: adultsAmount.checked,
+        adultsAmount: adultsAmount.value,
     };
 
     try {
