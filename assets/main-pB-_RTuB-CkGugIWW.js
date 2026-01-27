@@ -1,0 +1,20 @@
+(function(){const o=document.createElement("link").relList;if(o&&o.supports&&o.supports("modulepreload"))return;for(const t of document.querySelectorAll('link[rel="modulepreload"]'))e(t);new MutationObserver(t=>{for(const r of t)if(r.type==="childList")for(const c of r.addedNodes)c.tagName==="LINK"&&c.rel==="modulepreload"&&e(c)}).observe(document,{childList:!0,subtree:!0});function s(t){const r={};return t.integrity&&(r.integrity=t.integrity),t.referrerPolicy&&(r.referrerPolicy=t.referrerPolicy),t.crossOrigin==="use-credentials"?r.credentials="include":t.crossOrigin==="anonymous"?r.credentials="omit":r.credentials="same-origin",r}function e(t){if(t.ep)return;t.ep=!0;const r=s(t);fetch(t.href,r)}})();(function(){const n=document.createElement("link").relList;if(n&&n.supports&&n.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))s(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const r of t.addedNodes)r.tagName==="LINK"&&r.rel==="modulepreload"&&s(r)}).observe(document,{childList:!0,subtree:!0});function o(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?t.credentials="include":e.crossOrigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function s(e){if(e.ep)return;e.ep=!0;const t=o(e);fetch(e.href,t)}})();const i=document.getElementById("menu-button"),l=document.getElementById("nav-mobile_menu"),u=document.getElementById("nav-mobile"),p=document.querySelectorAll("#nav-mobile_menu a"),d=document.querySelector("body"),a=document.getElementById("overlay");console.log(i);i&&l&&u&&p&&d&&a&&(console.log(" [1] menu button exists"),i.addEventListener("click",()=>{console.log("[1] clicked button ",i),i.classList.contains("active")?(setTimeout(()=>{m(i,[l,u])},200),d.style.overflow="auto",a.style.display="none",a.style.opacity="0"):(m(i,[l,u]),d.style.overflow="hidden",a.style.display="block",a.style.opacity="1"),p.forEach((o,s)=>{o.classList.contains("active")?n(o):setTimeout(()=>{o.classList.add("active")},200)});function n(o,s){o.classList.toggle("active")}console.log("[1] button has class",i.classList)}));const f=document.getElementById("countdown");if(f){const n=S();v(n,f)}function v(n,o){const s=`
+        <span>
+            <span>:</span>
+        </span>
+    `;o.innerHTML=`
+        <span id="days">
+            <span class="countdown-time">${n.days}</span>
+            <span class="countdown-text">dny</span>
+        </span>
+        ${s}
+        <span id="hours">
+            <span class="countdown-time">${n.hours}</span>
+            <span class="countdown-text">hodiny</span>
+        </span>
+        ${s}
+        <span id="minutes">
+            <span class="countdown-time">${n.minutes}</span>
+            <span class="countdown-text">minuty</span>
+        </span>
+    `}function S(){const n=new Date("May 7, 2026 12:00:00").getTime();let o=new Date().getTime(),s=n-o,e=Math.floor(s/(1e3*60*60*24)),t=Math.floor(s%(1e3*60*60*24)/(1e3*60*60)),r=Math.floor(s%(1e3*60*60)/(1e3*60)),c=e.toString();e<100&&e>10?c="0"+e.toString():e<10&&(c="00"+e.toString());let h=t<10?"0"+t.toString():t.toString(),L=r<10?"0"+r.toString():r.toString();return{days:c,hours:h,minutes:L}}function m(n,o,s="active"){n instanceof HTMLElement&&(n.classList.toggle(s),o&&o.forEach(e=>{e.classList.contains(s)?e.classList.remove(s):e.classList.add(s)}))}gsap.registerPlugin(ScrollTrigger);const g=new Lenis({duration:1,smoothWheel:!0,smoothTouch:!1,autoRaf:!0});g.on("scroll",ScrollTrigger.update);window.addEventListener("resize",()=>{ScrollTrigger.refresh()});function y(n){g.raf(n),requestAnimationFrame(y)}requestAnimationFrame(y);gsap.ticker.lagSmoothing(0);const w=document.getElementById("hero");if(w){const n=gsap.timeline({scrollTrigger:{trigger:"#hero",start:"top top",end:"+=100%",scrub:0}});gsap.utils.toArray(".parallax").forEach(o=>{const s=parseFloat(o.dataset.depth||"0"),e=-(o.offsetHeight*s);n.to(o,{y:e,ease:"none"},0)}),ScrollTrigger.create({trigger:"#hero",start:"top top",end:"+=100%",pin:!0,pinSpacing:!1})}

@@ -217,5 +217,61 @@ if(pageHero){
 });*/
 
 
+const animatedTexts = document.querySelectorAll('.animated-text') as unknown as HTMLElement[];
+
+if(animatedTexts){
+    animate();
+    window.requestAnimationFrame(raf);
+    window.addEventListener('load', animate);
+    window.addEventListener('reload', animate);
+    window.addEventListener('resize', location.reload);
+}
+
+
+function animate() {
+    animatedTexts.forEach((el: HTMLElement) => {
+        el.innerHTML = el.textContent
+            .split("")
+            .map((char: any) => `<span>${char}</span>`)
+            .join("");
+
+        gsap.from(el.querySelectorAll("span"), {
+            scrollTrigger: {
+                trigger: el,
+                start: "50% 85%",
+                end: "top 35%",
+                scrub: true,
+            },
+            opacity: 0.3,
+            y: 50,
+            duration: 1,
+            stagger: 0.1,
+        });
+    })
+}
+
+
+/*
+const animatedBoxes = document.querySelectorAll('.animated-box') as unknown as HTMLElement[];
+if(animatedBoxes){
+
+    animatedBoxes.forEach((el: HTMLElement) => {
+        console.log("elements: ", el)
+        gsap.from(el), {
+            scrollTrigger: {
+                trigger: el,
+                start: "50% 85%",
+                end: "top 35%",
+                scrub: true,
+            },
+            opacity: 0,
+            duration: 1,
+            y: 50,
+            stagger: 0.1,
+        }
+    })
+}*/
+
+
 // EVENT LISTENERS
 
