@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script type="module">
+    import { db } from "./src/firebase.config.js"; // Your firebase config file
+    import { collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+    const body = document.querySelector("body");
+
+    async function getAttendingGuests() {
+        try {
+            // 1. Reference the 'rsvps' collection
+            const rsvpRef = collection(db, "rsvps");
+
+            // 2. Create a query to find people who are attending
+            // (Filtering where notAttending is false)
+            const q = query(rsvpRef, where("notAttending", "==", false));
+
+            const querySnapshot = await getDocs(q);
+
+            console.log("--- Svatba ---");
+
+            querySnapshot.forEach((doc) => {
+                const data = doc.data();
+
+                body.innerHTML += `
+                    <div>
+                        <p>Jméno: ${data.name} ${data.surname} </p>
+                        <p>Dospělí: ${data.adultsAmount? data.adultsAmount : 0} | Děti: ${data.kidsAmount}</p>
+                        <p>${data.attendingCeremony ? 'Obřad ' : ''}${data.attendingFeast ? 'Hostina ' : ''}${data.attentingParty ? 'Párty' : ''}</p>
+                        <p>--------------------------</p>
+                    </div>
+                `
+            });
+
+        } catch (error) {
+            console.error("Error fetching guests: ", error);
+        }
+    }
+
+    getAttendingGuests();
+</script>
+</html>

@@ -473,11 +473,43 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0;
+  gap: 1rem;
   flex-wrap: nowrap;
   padding: 2rem;
   box-sizing: border-box;
   z-index: 102;
+}
+#main #about .main-information#accommodations > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: nowrap;
+  width: 86%;
+}
+#main #about .main-information#accommodations > div .information {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: nowrap;
+}
+#main #about .main-information#accommodations > div .information_box {
+  width: 100%;
+}
+#main #about .main-information#accommodations > div .information div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.2rem;
+  flex-wrap: nowrap;
+}
+#main #about .main-information#accommodations > div .information div p {
+  text-align: left;
 }
 #main #about .main-information h2 {
   margin-bottom: 2rem;
@@ -519,6 +551,18 @@ html {
   }
   #main #about .main-information {
     margin-top: 2rem;
+  }
+  #main #about .main-information .info-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+  #main #about .main-information .info-box div {
+    width: 50%;
   }
   #main #about .main-information .information {
     display: flex;
@@ -583,6 +627,14 @@ html {
   }
   #main #about .main-information {
     margin-top: 4rem;
+  }
+  #main #about .main-information#accommodations > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    flex-wrap: nowrap;
   }
   #main #about .main-information .information {
     display: flex;

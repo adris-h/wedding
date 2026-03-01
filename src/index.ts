@@ -203,41 +203,4 @@ if(pageHero){
     });
 }
 
-/*gsap.to("#hero_background", {
-    opacity: 0,
-    ease: "none",
-    scrollTrigger: {
-        trigger: "#hero",
-        start: "top top",
-        end: "15% top",  // Short, quick fade
-        scrub: true  // Instant, no smoothing
-    }
-});*/
-
-
-
-
-/*
-const animatedBoxes = document.querySelectorAll('.animated-box') as unknown as HTMLElement[];
-if(animatedBoxes){
-
-    animatedBoxes.forEach((el: HTMLElement) => {
-        console.log("elements: ", el)
-        gsap.from(el), {
-            scrollTrigger: {
-                trigger: el,
-                start: "50% 85%",
-                end: "top 35%",
-                scrub: true,
-            },
-            opacity: 0,
-            duration: 1,
-            y: 50,
-            stagger: 0.1,
-        }
-    })
-}*/
-
-
-// EVENT LISTENERS
 
