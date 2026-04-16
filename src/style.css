@@ -26,7 +26,7 @@ body p, body h1, body {
 }
 @media (orientation: landscape) {
   :root {
-    --font-size: 2vw;
+    --font-size: 1.8vw;
   }
 }
 
@@ -393,11 +393,84 @@ html {
     aspect-ratio: 3/4;
   }
 }
+#main #about .additional-information {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: nowrap;
+  margin-top: 2rem;
+}
+@media (orientation: portrait) {
+  #main #about .additional-information {
+    width: 80%;
+  }
+}
+#main #about .additional-information p {
+  text-align: center;
+  font-family: "Cinzel", serif;
+  font-size: var(--font-size);
+  font-weight: normal;
+  line-height: normal;
+  color: #5b4f48;
+}
+#main #about .additional-information.ceremony-information p {
+  text-align: left;
+}
+#main #about .additional-information a {
+  text-decoration: none;
+  color: color-mix(in srgb, #5b4f48, 10% transparent);
+  border: 1px solid color-mix(in srgb, #5b4f48, 10% transparent);
+  padding: 0.5rem 1rem;
+  width: fit-content;
+  margin: 0 auto;
+  transition: 400ms;
+  position: relative;
+}
+#main #about .additional-information a:hover {
+  color: #5b4f48;
+  transform: scale(1.02);
+}
+#main #about .additional-information a:hover:after {
+  left: 0;
+  top: 0;
+}
+#main #about .additional-information a:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 4px;
+  left: 4px;
+  border: 1px solid #5b4f48;
+  z-index: -1;
+  transition: 400ms;
+  opacity: 0.2;
+}
+#main #about .additional-information b {
+  font-weight: 500;
+  font-size: 1.4rem;
+}
+#main #about .additional-information .distances {
+  width: 95%;
+  background: rgba(91, 79, 72, 0.05);
+  padding: 0.4rem 1.5rem;
+  border-left: 2px solid #5b4f48;
+}
+#main #about .additional-information .distances div {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dotted #ccc;
+  padding: 0.5rem 0;
+}
 #main #about #countdown {
   color: #5b4f48;
   padding: 1rem 3rem;
   aspect-ratio: 2.9/1;
   margin-top: 1rem;
+  margin-bottom: 1rem;
   z-index: 104;
   width: 45vw;
   background: url("svgs/frame_1.svg");
@@ -414,7 +487,7 @@ html {
   flex-wrap: nowrap;
 }
 #main #about #countdown > span .countdown-text {
-  font-size: var(--font-size);
+  font-size: calc(var(--font-size) * 1.2);
   color: color-mix(in srgb, #5b4f48, 30% transparent);
 }
 #main #about #countdown > span:nth-child(even) {
@@ -422,6 +495,9 @@ html {
 }
 #main #about #ceremony {
   margin-top: 5rem;
+}
+#main #about #ceremony .information {
+  gap: -0.5rem;
 }
 #main #about #gifts .information {
   justify-content: center;
@@ -482,34 +558,41 @@ html {
 #main #about .main-information#accommodations > div {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
   gap: 1rem;
   flex-wrap: nowrap;
   width: 86%;
 }
 #main #about .main-information#accommodations > div .information {
-  width: 80%;
+  width: 60%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   gap: 2rem;
   flex-wrap: nowrap;
 }
+@media (orientation: portrait) {
+  #main #about .main-information#accommodations > div .information {
+    width: 100%;
+  }
+}
 #main #about .main-information#accommodations > div .information_box {
-  width: 100%;
+  width: 80%;
 }
 #main #about .main-information#accommodations > div .information div {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
   gap: 0.2rem;
   flex-wrap: nowrap;
+  width: 80%;
 }
 #main #about .main-information#accommodations > div .information div p {
-  text-align: left;
+  text-align: justify;
+  font-size: 1.2rem;
 }
 #main #about .main-information h2 {
   margin-bottom: 2rem;
@@ -528,10 +611,33 @@ html {
   transition: 400ms;
 }
 #main #about .main-information .information_box:not(.frame, .embed) {
-  background-image: url("svgs/border2.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  border: 1px solid #5b4f48;
   background-size: contain;
+  position: relative;
+}
+#main #about .main-information .information_box:not(.frame, .embed):after {
+  /*position: absolute;
+  content: "";
+  width: 106%;
+  height: 110%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid $acc-clr;*/
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 8px;
+  left: 8px;
+  border: 1px solid #5b4f48;
+  z-index: -1;
+  transition: 400ms;
+  opacity: 0.2;
+}
+#main #about .main-information .information_box:not(.frame, .embed):hover:after {
+  top: 0;
+  left: 0;
 }
 #main #about .main-information .information_box:hover {
   transform: scale(1.01);
@@ -559,7 +665,7 @@ html {
     align-items: center;
     gap: 1rem;
     flex-wrap: nowrap;
-    width: 100%;
+    width: 80%;
   }
   #main #about .main-information .info-box div {
     width: 50%;
@@ -573,8 +679,8 @@ html {
     flex-wrap: nowrap;
   }
   #main #about .main-information .information_box {
-    width: 45%;
-    height: 20vw;
+    width: 40%;
+    height: 18vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -583,7 +689,7 @@ html {
     flex-wrap: nowrap;
   }
   #main #about .main-information .information_icon {
-    width: 20%;
+    width: 25%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -684,6 +790,9 @@ html {
     color: #5b4f48;
     margin: 0.5rem;
   }
+}
+#main #about #accommodations .information_box {
+  width: 20%;
 }
 
 #gallery header {

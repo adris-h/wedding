@@ -20,45 +20,27 @@ const overlay =  document.getElementById("overlay");
 
 console.log(menuButton);
 
-// only if elements above exist
-if (menuButton && menuPopUp && navMobile && navLinks && body && overlay) {
-    console.log(" [1] menu button exists");
-
-    // add an event listener
+if (menuButton && menuPopUp && navMobile) {
     menuButton.addEventListener('click', () => {
-        console.log("[1] clicked button ", menuButton);
-        // add active classes
-        if(menuButton.classList.contains('active')) {
-            setTimeout(() => {onClick(menuButton, [menuPopUp, navMobile]);}, 200)
-            body.style.overflow = 'auto'; // enable scrolling
+        const isActive = menuButton.classList.contains('active');
 
-            overlay.style.display = 'none';
-            overlay.style.opacity = '0';
-        } else{
-            onClick(menuButton, [menuPopUp, navMobile]);
-            body.style.overflow = 'hidden'; // disable scrolling
+        // Toggle menu and button
+        onClick(menuButton, [menuPopUp, navMobile]);
 
-            overlay.style.display = 'block';
-            overlay.style.opacity = '1';
+        // Handle Scroll lock and Overlay
+        if (body) body.style.overflow = isActive ? 'auto' : 'hidden';
+        if (overlay) {
+            overlay.style.display = isActive ? 'none' : 'block';
+            overlay.style.opacity = isActive ? '0' : '1';
         }
 
-
-        navLinks.forEach((link, i) => {
-            if (!link.classList.contains('active')) {
-                setTimeout(() => { link.classList.add('active'); }, 200);
-            } else{
-                toggleLink(link, i);
-            }
-        })
-
-        function toggleLink(link: HTMLElement, index: number) {
-            link.classList.toggle('active');
-        }
-
-        console.log("[1] button has class", menuButton.classList);
-    })
+        // Handle Links animation
+        const navLinks = document.querySelectorAll('#nav-mobile_menu a');
+        navLinks.forEach((link) => {
+            link.classList.toggle('active', !isActive);
+        });
+    });
 }
-
 
 const countdownContainer = document.getElementById('countdown');
 if(countdownContainer){
