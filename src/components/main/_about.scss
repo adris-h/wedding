@@ -1,3 +1,53 @@
+#schedule-overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  z-index: 99999;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  &.active {
+    display: flex;
+    opacity: 1;
+    align-items: center;
+    justify-content: center;
+  }
+
+  a{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: $txt-clr-light;
+    /*background: $bcg-clr;
+    padding:  .05em .2em;*/
+    z-index: 1;
+
+  }
+
+  div{
+    background: url("/src/images/harmonogram.webp");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 90vw;
+    height: 90vh;
+    max-width: 600px;
+    max-height: 800px;
+
+    @include responsive(portrait) {
+      width: 95vw;
+      height: 80vh;
+    }
+  }
+}
+
 #about{
   height: fit-content;
   width: 100vw;
@@ -70,6 +120,14 @@
     }
   }
 
+  #schedule{
+    scroll-margin: 30vh;
+    a{
+      cursor: pointer;
+    }
+  }
+
+
 
   .additional-information{
     width: 80%;
@@ -80,8 +138,6 @@
     }
 
     margin-top: 2rem;
-
-
 
     p{
 

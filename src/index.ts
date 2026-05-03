@@ -186,3 +186,17 @@ if(pageHero){
 }
 
 
+const scheduleOverlay = document.getElementById('schedule-overlay') as HTMLElement;
+const scheduleBtn = document.querySelector('#schedule a') as HTMLElement;
+const scheduleCloseBtn = document.querySelector('#schedule-close') as HTMLElement;
+
+scheduleBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    scheduleOverlay.classList.add('active');
+})
+
+scheduleCloseBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    scheduleOverlay.classList.remove('active');
+})
+
